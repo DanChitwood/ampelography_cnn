@@ -1,0 +1,884 @@
+import os
+import numpy as np
+import random
+from PIL import Image, ImageDraw
+import matplotlib.pyplot as plt
+import pandas as pd
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import (
+    confusion_matrix, ConfusionMatrixDisplay,
+    r2_score, precision_recall_fscore_support, accuracy_score
+)
+from scipy.stats import pearsonr
+from umap import UMAP
+from sklearn.manifold import TSNE # NEW: Import t-SNE for plotting
+import joblib
+import shutil
+
+import torch
+import torch.nn as nn
+import torch.optim as optim
+import torch.nn.functional as F
+from torch.utils.data import Dataset, DataLoader
+from torchvision import transforms
+
+# ====================
+# Device setup
+# ====================
+# Automatically selects the best available device (MPS for Apple Silicon, CUDA for NVIDIA GPUs, or CPU)
+device = torch.device("mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu")
+print(f"Using device: {device}")
+
+# ====================================================================================================
+# 1. Preprocessing Function: Generates pixel-based leaf mask images from landmark data
+#    (PRESERVED BEST MODEL'S NOISE PARAMETERS)
+# ====================================================================================================
+def preprocess_leaf_masks(data_folder="data",
+                          PCs=None, # INPUT: Principal Component values for each leaf (e.g., from GPA)
+                          names=None, # INPUT: Unique identifiers for each leaf (substrings to find blade/vein files)
+                          labels=None, # INPUT: Genotype/class labels for each leaf
+                          resolution=512, # PARAMETER: Output image resolution (height and width)
+                          n_rotations=40, # PARAMETER: Number of rotated versions to generate per original leaf
+                          output_folder="PIXEL_IMAGES", # OUTPUT: Directory to save generated images and metadata
+                          normalize_pcs=True, # PARAMETER: Whether to normalize PC values using StandardScaler
+                          blade_noise_prop_range=(0.0, 0.2), # PARAMETER: Min/max proportion of blade pixels to remove (clumped noise)
+                          vein_noise_prop_range=(0.0, 1.0), # PARAMETER: Min/max proportion of vein pixels to remove (Gaussian-weighted noise)
+                          blade_noise_num_clumps=(1, 5)): # PARAMETER: Min/max number of noise clumps for blade removal
+
+    print(f"--- Starting Preprocessing to generate data in '{output_folder}' ---")
+    print(f"  Resolution: {resolution}x{resolution}")
+    print(f"  Rotations per leaf: {n_rotations}")
+    print(f"  Blade noise proportion range: {blade_noise_prop_range}")
+    print(f"  Vein noise proportion range: {vein_noise_prop_range}")
+    print(f"  Blade noise clump range: {blade_noise_num_clumps}")
+
+    # Clear existing output folder to ensure a truly clean slate each time
+    if os.path.exists(output_folder):
+        print(f"Clearing existing output folder: {output_folder}...")
+        shutil.rmtree(output_folder)
+        print(f"Cleared {output_folder}.")
+
+    # Create necessary output directories
+    os.makedirs(output_folder, exist_ok=True)
+    os.makedirs(os.path.join(output_folder, "MASKS"), exist_ok=True) # Binary masks for model input
+    os.makedirs(os.path.join(output_folder, "RGB_IMAGES"), exist_ok=True) # Visualizable RGB versions
+
+    assert PCs is not None and names is not None and labels is not None, \
+        "PCs, names, and labels cannot be None. Please provide leaf data."
+    assert len(names) == len(PCs) == len(labels), \
+        "Lengths of names, PCs, and labels must be equal."
+
+    all_filenames_raw = []
+    all_labels_raw = []
+    all_pcs_raw = []
+
+    counter = 1 # Global counter for unique filenames
+
+    for i, name in enumerate(names):
+        label = labels[i]
+        pc = PCs[i]
+
+        # Locate blade and vein landmark files
+        blade_candidates = [f for f in os.listdir(data_folder) if name in f and "blade" in f]
+        if not blade_candidates:
+            print(f"ERROR: No blade file found for '{name}' in '{data_folder}'. Skipping this sample.")
+            continue
+        blade_file = blade_candidates[0]
+
+        vein_candidates = [f for f in os.listdir(data_folder) if name in f and "veins" in f]
+        if not vein_candidates:
+            print(f"ERROR: No vein file found for '{name}' in '{data_folder}'. Skipping this sample.")
+            continue
+        vein_file = vein_candidates[0]
+
+        # Load landmark data
+        blade = np.loadtxt(os.path.join(data_folder, blade_file))
+        vein = np.loadtxt(os.path.join(data_folder, vein_file))
+        all_coords_original = np.vstack([blade, vein]) # Combine for processing, keep original for centroid
+
+        # Calculate centroid once per leaf, before rotations, based on original coordinates
+        leaf_centroid = all_coords_original.mean(axis=0)
+
+        for rot in range(n_rotations):
+            angle_deg = random.uniform(0, 360) # Random rotation angle
+            angle_rad = np.deg2rad(angle_deg)
+            R = np.array([[np.cos(angle_rad), -np.sin(angle_rad)],
+                          [np.sin(angle_rad),  np.cos(angle_rad)]])
+
+            # Apply rotation around the leaf's centroid
+            rotated = (all_coords_original - leaf_centroid) @ R.T + leaf_centroid
+
+            # Scale and translate to fit within the desired resolution with padding
+            min_xy = rotated.min(axis=0)
+            max_xy = rotated.max(axis=0)
+            scale = resolution * 0.9 / max(max_xy - min_xy) # 0.9 to add a border
+            scaled = (rotated - min_xy) * scale
+            offset = (resolution - (max_xy - min_xy) * scale) / 2
+            final_coords = scaled + offset
+
+            # Separate blade and vein coordinates after transformation
+            n_blade = len(blade)
+            blade_scaled = final_coords[:n_blade]
+            vein_scaled = final_coords[n_blade:]
+
+            # Create grayscale mask image (0: background, 1: blade, 2: vein)
+            mask = Image.new("L", (resolution, resolution), 0)
+            draw = ImageDraw.Draw(mask)
+            draw.polygon(blade_scaled.flatten().tolist(), fill=1) # Draw blade
+            draw.polygon(vein_scaled.flatten().tolist(), fill=2)  # Draw vein
+
+            # Convert mask to numpy array for pixel-level noise manipulation
+            mask_np = np.array(mask)
+
+            # --- Apply Noise ---
+            # 1. Vein pixel removal (replace with blade) with Gaussian probability based on distance to centroid
+            vein_pixels_coords = np.argwhere(mask_np == 2)
+            if len(vein_pixels_coords) > 0:
+                prop_to_remove_vein = random.uniform(*vein_noise_prop_range)
+                num_to_remove_vein = int(prop_to_remove_vein * len(vein_pixels_coords))
+
+                if num_to_remove_vein > 0:
+                    # Calculate scaled centroid for distance calculation in current image coordinates
+                    current_scaled_centroid = (leaf_centroid - min_xy) * scale + offset
+                    vein_distances = np.linalg.norm(vein_pixels_coords - current_scaled_centroid.round().astype(int), axis=1)
+
+                    if vein_distances.max() > 0:
+                        removal_probabilities = vein_distances / vein_distances.max() # Higher distance = higher prob
+                    else: # All distances are zero (e.g., single vein pixel, or all overlap centroid)
+                        removal_probabilities = np.zeros_like(vein_distances)
+
+                    # Select pixels to remove based on these probabilities
+                    sorted_indices = np.argsort(removal_probabilities)[::-1] # Sort descending by probability
+                    indices_to_remove_actual = sorted_indices[:num_to_remove_vein]
+
+                    for idx_in_list in indices_to_remove_actual:
+                        r, c = vein_pixels_coords[idx_in_list]
+                        mask_np[r, c] = 1 # Replace vein (2) with blade (1)
+
+            # 2. Blade pixel removal (clumped, replace with background)
+            blade_pixels_coords = np.argwhere(mask_np == 1)
+            if len(blade_pixels_coords) > 0:
+                prop_to_remove_blade = random.uniform(*blade_noise_prop_range)
+                num_to_remove_blade = int(prop_to_remove_blade * len(blade_pixels_coords))
+
+                if num_to_remove_blade > 0:
+                    num_clumps = random.randint(*blade_noise_num_clumps)
+                    # Ensure we don't try to select more clump centers than available blade pixels
+                    if len(blade_pixels_coords) < num_clumps:
+                         num_clumps = len(blade_pixels_coords)
+
+                    # Randomly select clump centers (seeds) from existing blade pixels
+                    clump_centers_indices = random.sample(range(len(blade_pixels_coords)), num_clumps)
+                    clump_centers = blade_pixels_coords[clump_centers_indices]
+
+                    # Calculate distance of each blade pixel to its nearest clump center
+                    min_distances = np.full(len(blade_pixels_coords), np.inf)
+                    for center in clump_centers:
+                        distances_to_center = np.linalg.norm(blade_pixels_coords - center, axis=1)
+                        min_distances = np.minimum(min_distances, distances_to_center)
+
+                    # We want to remove pixels *closest* to the clump centers, so higher removal probability for smaller distances
+                    if min_distances.max() > 0:
+                        removal_probabilities = 1 - (min_distances / min_distances.max()) # Invert for probability
+                    else:
+                        removal_probabilities = np.zeros_like(min_distances)
+
+                    # Select pixels based on these probabilities
+                    sorted_indices = np.argsort(removal_probabilities)[::-1] # Sort descending (highest prob first)
+
+                    removed_pixels_count = 0
+                    for idx_in_list in sorted_indices:
+                        if removed_pixels_count >= num_to_remove_blade:
+                            break
+                        r, c = blade_pixels_coords[idx_in_list]
+                        if mask_np[r,c] == 1: # Only remove if it's still a blade pixel
+                            mask_np[r, c] = 0 # Set to background
+                            removed_pixels_count += 1
+            # --- End Apply Noise ---
+
+            # Convert back to PIL Image and save mask
+            mask = Image.fromarray(mask_np)
+            mask_name = f"{label}_{counter:04d}.png"
+            mask.save(os.path.join(output_folder, "MASKS", mask_name)) # OUTPUT: Grayscale mask image
+
+            # Create RGB visualization for human inspection
+            rgb = Image.new("RGB", (resolution, resolution), (0, 0, 0)) # Black background
+            for r in range(resolution):
+                for c in range(resolution):
+                    if mask_np[r,c] == 1:
+                        rgb.putpixel((c,r), (255, 140, 0)) # Blade: Orange
+                    elif mask_np[r,c] == 2:
+                        rgb.putpixel((c,r), (255, 0, 255)) # Vein: Magenta
+            rgb.save(os.path.join(output_folder, "RGB_IMAGES", mask_name)) # OUTPUT: RGB visualization
+
+            all_pcs_raw.append(pc)
+            all_labels_raw.append(label)
+            all_filenames_raw.append(mask_name)
+
+            counter += 1
+
+    # Create metadata DataFrame
+    metadata_df = pd.DataFrame({
+        "filename": all_filenames_raw,
+        "label": all_labels_raw,
+        "PC1": [p[0] for p in all_pcs_raw],
+        "PC2": [p[1] for p in all_pcs_raw]
+    })
+
+    # Normalize PC values if requested and save the scaler
+    if normalize_pcs:
+        print("Normalizing PC values...")
+        scaler = StandardScaler()
+        metadata_df[['PC1', 'PC2']] = scaler.fit_transform(metadata_df[['PC1', 'PC2']])
+        joblib.dump(scaler, os.path.join(output_folder, "pc_scaler.pkl")) # OUTPUT: PC scaler object
+        print("PC values normalized and scaler saved.")
+
+    metadata_df.to_csv(os.path.join(output_folder, "METADATA.csv"), index=False) # OUTPUT: Metadata CSV
+    print(f"Saved {len(metadata_df)} rotated leaf masks and metadata to '{output_folder}'.")
+    print(f"--- Preprocessing complete ---")
+
+
+# ====================================================================================================
+# 2. LeafDataset Class: PyTorch Dataset for loading images and their associated data
+#    (NO CHANGES - Works with the generated PIXEL_IMAGES)
+# ====================================================================================================
+class LeafDataset(Dataset):
+    def __init__(self, image_dir, metadata_file, transform=None):
+        self.image_dir = image_dir
+        self.metadata_df = pd.read_csv(metadata_file)
+        self.transform = transform
+
+        self.filenames = self.metadata_df['filename'].values
+        self.label_encoder = LabelEncoder()
+        # Fit label encoder on all labels from the metadata to ensure consistent mapping
+        self.labels = self.label_encoder.fit_transform(self.metadata_df['label'])
+        self.pcs = self.metadata_df[["PC1", "PC2"]].values.astype(np.float32)
+
+    def __len__(self):
+        return len(self.filenames)
+
+    def __getitem__(self, idx):
+        img_path = os.path.join(self.image_dir, self.filenames[idx])
+        image = Image.open(img_path).convert("L") # Convert to grayscale (L)
+
+        if self.transform:
+            image = self.transform(image)
+
+        label = torch.tensor(self.labels[idx], dtype=torch.long)
+        pcs = torch.tensor(self.pcs[idx], dtype=torch.float32)
+
+        return image, label, pcs, self.filenames[idx]
+
+
+# ====================================================================================================
+# 3. CNNMultitask Model: The multi-task Convolutional Neural Network architecture
+#    (PRESERVED BEST MODEL'S ARCHITECTURE, INCLUDING DROPOUT)
+# ====================================================================================================
+class CNNMultitask(nn.Module):
+    def __init__(self, n_classes, resolution=512):
+        super(CNNMultitask, self).__init__()
+        # Feature extraction layers
+        self.features = nn.Sequential(
+            nn.Conv2d(1, 16, 3, padding=1), nn.BatchNorm2d(16), nn.ReLU(), nn.MaxPool2d(2), # Output: 16 x 256 x 256
+            nn.Conv2d(16, 32, 3, padding=1), nn.BatchNorm2d(32), nn.ReLU(), nn.MaxPool2d(2), # Output: 32 x 128 x 128
+            nn.Conv2d(32, 64, 3, padding=1), nn.BatchNorm2d(64), nn.ReLU(), nn.MaxPool2d(2), # Output: 64 x 64 x 64
+            nn.Conv2d(64, 128, 3, padding=1), nn.BatchNorm2d(128), nn.ReLU(), nn.MaxPool2d(2) # Output: 128 x 32 x 32
+        )
+        self.flatten = nn.Flatten()
+
+        # Calculate the size of the flattened features before the FC layers
+        # This assumes a 512x512 input image, which is downsampled 4 times by MaxPool2d (512 / 2^4 = 32)
+        self.flattened_size = 128 * (resolution // 16) * (resolution // 16) # For 512 res: 128 * 32 * 32 = 131072
+
+        # Fully connected embedding layer
+        self.fc_embedding = nn.Linear(self.flattened_size, 256)
+        self.dropout_embedding = nn.Dropout(0.3) # PARAMETER: Dropout rate for the embedding layer
+
+        # Regressor Head: Predicts 2 PC values
+        self.regressor_head = nn.Sequential(
+            nn.Linear(256, 128),
+            nn.ReLU(),
+            nn.Linear(128, 64),
+            nn.ReLU(),
+            nn.Linear(64, 32),
+            nn.ReLU(),
+            nn.Linear(32, 2) # Output: 2 PC values
+        )
+
+        # Classifier Head: Predicts n_classes (genotype labels)
+        self.classifier_head = nn.Sequential(
+            nn.Linear(256, 128),
+            nn.ReLU(),
+            nn.Dropout(0.3), # PARAMETER: Dropout rate for the classifier head
+            nn.Linear(128, n_classes) # Output: n_classes (logits for classification)
+        )
+
+    def forward(self, x):
+        x = self.features(x)
+        x = self.flatten(x)
+
+        # Runtime check for flattened size consistency
+        if x.shape[1] != self.flattened_size:
+            raise ValueError(f"Flattened feature size mismatch. Expected {self.flattened_size}, got {x.shape[1]}. "
+                             "Please ensure your input image resolution is compatible with the CNN layers, "
+                             "e.g., 512 for this model, or adjust CNN layers/use AdaptiveAvgPool2d.")
+
+        embeddings = self.dropout_embedding(F.relu(self.fc_embedding(x))) # Apply ReLU and Dropout to embedding
+
+        pred_pcs = self.regressor_head(embeddings)
+        pred_labels = self.classifier_head(embeddings)
+
+        return pred_pcs, pred_labels, embeddings # OUTPUT: Predicted PCs, Predicted Labels (logits), and Embeddings
+
+# ====================================================================================================
+# 4. Training Function: Orchestrates the training loop, including loss calculation and early stopping
+#    (PRESERVED BEST MODEL'S TRAINING PARAMETERS)
+# ====================================================================================================
+def train_model(data_dir="PIXEL_IMAGES",
+                batch_size=16, # PARAMETER: Batch size for training
+                lr=3e-4, # PARAMETER: Learning rate for the Adam optimizer
+                epochs=150, # PARAMETER: Maximum number of training epochs
+                alpha=0.3, # PARAMETER: Weight for the classification loss in the total loss (Regression Loss + alpha * Classification Loss)
+                eval_interval=5): # PARAMETER: How often (in epochs) to evaluate on the validation set and check for early stopping
+
+    metadata_file = os.path.join(data_dir, "METADATA.csv")
+    image_dir = os.path.join(data_dir, "MASKS")
+
+    transform = transforms.Compose([
+        transforms.ToTensor(), # Converts PIL Image to PyTorch Tensor (H, W) to (C, H, W) and scales to [0,1]
+    ])
+
+    full_dataset = LeafDataset(image_dir, metadata_file, transform)
+
+    # Calculate class weights for imbalanced classification loss (Inverse Frequency Weighting)
+    original_labels = full_dataset.metadata_df['label'].values
+    label_encoder_for_weights = LabelEncoder()
+    encoded_labels = label_encoder_for_weights.fit_transform(original_labels)
+    n_classes = len(np.unique(encoded_labels))
+
+    class_counts = pd.Series(encoded_labels).value_counts().sort_index()
+    total_samples = len(encoded_labels)
+
+    # Ensure all classes from 0 to n_classes-1 are present in class_counts for correct indexing
+    all_classes_counts = pd.Series(0, index=range(n_classes))
+    all_classes_counts.update(class_counts)
+    class_weights = total_samples / (n_classes * (all_classes_counts.values + 1e-6)) # Add epsilon to prevent division by zero
+    class_weights = torch.tensor(class_weights, dtype=torch.float).to(device)
+    print(f"Calculated class weights (Inverse Frequency): {class_weights}")
+
+
+    # Split data into training and validation sets
+    train_indices, val_indices = train_test_split(
+        range(len(full_dataset)), test_size=0.2, random_state=42, # 20% for validation, fixed random state for reproducibility
+        stratify=full_dataset.labels # Stratify to maintain class distribution in splits
+    )
+    train_loader = DataLoader(torch.utils.data.Subset(full_dataset, train_indices), batch_size=batch_size, shuffle=True)
+    val_loader = DataLoader(torch.utils.data.Subset(full_dataset, val_indices), batch_size=batch_size)
+
+    # Initialize model, optimizer, and loss functions
+    model = CNNMultitask(n_classes).to(device) # Move model to selected device
+    optimizer = optim.Adam(model.parameters(), lr=lr)
+    criterion_reg = nn.MSELoss() # Mean Squared Error for regression
+    criterion_cls = nn.CrossEntropyLoss(weight=class_weights) # Cross-Entropy Loss for classification with weights
+
+    # Learning rate scheduler
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience=10, factor=0.5, verbose=True)
+
+    print(f"\n--- Starting Model Training ---")
+    print(f"  Training samples: {len(train_indices)}")
+    print(f"  Validation samples: {len(val_indices)}")
+    print(f"  Number of classes: {n_classes}")
+    print(f"  Initial Learning Rate: {lr}")
+    print(f"  Alpha (Classification Loss Weight): {alpha}")
+    print(f"  Early Stopping Patience: 20 epochs")
+
+    train_losses = [] # To store training loss for each epoch
+    val_losses = [] # To store validation loss for evaluation intervals
+
+    # Early stopping parameters
+    best_val_loss = float('inf')
+    epochs_no_improve = 0
+    patience = 20 # PARAMETER: Number of evaluation intervals to wait for improvement before stopping
+
+    for epoch in range(epochs):
+        model.train() # Set model to training mode
+        total_train_loss = 0
+        total_reg_loss = 0
+        total_cls_loss = 0
+
+        for batch_idx, (imgs, labels, pcs, filenames) in enumerate(train_loader):
+            imgs, labels, pcs = imgs.to(device), labels.to(device), pcs.to(device) # Move data to device
+
+            optimizer.zero_grad() # Clear gradients
+
+            pred_pcs, pred_labels, _ = model(imgs) # Forward pass
+
+            # Calculate individual losses
+            loss_reg = criterion_reg(pred_pcs, pcs)
+            loss_cls = criterion_cls(pred_labels, labels)
+
+            # Combined loss
+            loss = loss_reg + alpha * loss_cls
+
+            loss.backward() # Backpropagation
+            optimizer.step() # Update model weights
+
+            total_train_loss += loss.item()
+            total_reg_loss += loss_reg.item()
+            total_cls_loss += loss_cls.item()
+
+        avg_train_loss = total_train_loss / len(train_loader)
+        train_losses.append(avg_train_loss)
+
+        print(f"Epoch {epoch+1}/{epochs} | Train Loss: {avg_train_loss:.4f} (Reg: {total_reg_loss/len(train_loader):.4f}, Cls: {total_cls_loss/len(train_loader):.4f})")
+
+        # Evaluate on validation set periodically
+        if (epoch + 1) % eval_interval == 0 or epoch == epochs - 1:
+            model.eval() # Set model to evaluation mode
+            total_val_loss = 0
+            with torch.no_grad(): # Disable gradient calculation for evaluation
+                for imgs, labels, pcs, filenames in val_loader:
+                    imgs, labels, pcs = imgs.to(device), labels.to(device), pcs.to(device)
+                    pred_pcs, pred_labels, _ = model(imgs)
+                    loss = criterion_reg(pred_pcs, pcs) + alpha * criterion_cls(pred_labels, labels)
+                    total_val_loss += loss.item()
+
+            avg_val_loss = total_val_loss / len(val_loader)
+            val_losses.append(avg_val_loss)
+            print(f"  Validation Loss: {avg_val_loss:.4f}")
+
+            scheduler.step(avg_val_loss) # Update learning rate based on validation loss
+
+            # Early stopping logic
+            if avg_val_loss < best_val_loss:
+                best_val_loss = avg_val_loss
+                epochs_no_improve = 0
+                model_save_path = os.path.join(data_dir, "cnn_multitask_model.pt")
+                torch.save(model.state_dict(), model_save_path) # Save the best model
+                print(f"✅ Model saved to {model_save_path} (best validation loss so far)")
+            else:
+                epochs_no_improve += eval_interval
+                if epochs_no_improve >= patience:
+                    print(f"Early stopping triggered after {epoch + 1} epochs. Validation loss has not improved for {patience} epochs.")
+                    break # Stop training
+
+    # Plot and save training/validation loss curve
+    plt.figure(figsize=(10, 6))
+    plt.plot(range(1, len(train_losses) + 1), train_losses, label='Training Loss')
+    # Adjust val_epochs to match the length of val_losses (due to eval_interval and early stopping)
+    val_epochs = [e for e in range(1, epoch + 2) if (e % eval_interval == 0 or e == epoch + 1)] # up to the last epoch trained
+    if len(val_epochs) > len(val_losses): # Trim if early stopping occurred
+        val_epochs = val_epochs[:len(val_losses)]
+    plt.plot(val_epochs, val_losses, label='Validation Loss')
+    plt.title('Training and Validation Loss Over Epochs')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.savefig(os.path.join(data_dir, "training_validation_loss.png")) # OUTPUT: Loss plot
+    plt.close()
+
+    print("--- Model Training Finished ---")
+    return model, train_losses, val_losses # OUTPUT: Trained model, training losses, validation losses
+
+
+# ====================================================================================================
+# 5. Evaluation Function: Evaluates the trained model and generates various plots and metrics
+#    (MODIFIED: Added combined CSV output, UMAP/t-SNE plots, and adjusted output directories)
+# ====================================================================================================
+def evaluate_model(data_dir="PIXEL_IMAGES", data_split='all'): # PARAMETER: 'all' for full data, 'validation' for validation set
+    image_dir = os.path.join(data_dir, "MASKS")
+    metadata_csv = os.path.join(data_dir, "METADATA.csv")
+    model_path = os.path.join(data_dir, "cnn_multitask_model.pt")
+    output_dir = os.path.join(data_dir, f"CNN_EVAL_OUTPUTS_{data_split.upper()}") # Dynamic output directory
+    os.makedirs(output_dir, exist_ok=True)
+
+    print(f"\n--- Starting Model Evaluation on {data_split.upper()} data ---")
+
+    transform = transforms.Compose([transforms.ToTensor()])
+    full_dataset = LeafDataset(image_dir, metadata_csv, transform)
+
+    # Determine which subset of data to evaluate
+    filenames_to_evaluate = []
+    if data_split == 'validation':
+        _, val_indices = train_test_split(
+            range(len(full_dataset)), test_size=0.2, random_state=42,
+            stratify=full_dataset.labels
+        )
+        dataset_to_evaluate = torch.utils.data.Subset(full_dataset, val_indices)
+        eval_title_suffix = " (Validation Data)"
+        filenames_to_evaluate = [full_dataset.filenames[i] for i in val_indices]
+    else: # data_split == 'all'
+        dataset_to_evaluate = full_dataset
+        eval_title_suffix = ""
+        filenames_to_evaluate = full_dataset.filenames
+
+    dataloader = DataLoader(dataset_to_evaluate, batch_size=16, shuffle=False)
+
+    # Load the trained model
+    model = CNNMultitask(n_classes=len(np.unique(full_dataset.labels))).to(device)
+    model.load_state_dict(torch.load(model_path, map_location=device))
+    model.eval() # Set model to evaluation mode
+
+    # Load PC scaler if it exists, to inverse transform normalized PCs
+    scaler = None
+    scaler_path = os.path.join(data_dir, "pc_scaler.pkl")
+    if os.path.exists(scaler_path):
+        scaler = joblib.load(scaler_path)
+        print("Loaded PC scaler for inverse transformation.")
+
+    # Collect all predictions, true values, embeddings, and filenames
+    all_preds_pcs = []
+    all_true_pcs = []
+    all_preds_labels = []
+    all_true_labels = []
+    all_embeddings = []
+    all_filenames_in_order = [] # Store filenames in the order they appear in the dataloader
+
+    with torch.no_grad(): # Disable gradient calculation during evaluation
+        for images, labels, pcs, filenames in dataloader:
+            images = images.to(device)
+            pcs = pcs.to(device)
+            labels = labels.to(device)
+
+            preds_pcs, preds_labels, embeddings = model(images)
+
+            all_preds_pcs.append(preds_pcs.cpu().numpy())
+            all_true_pcs.append(pcs.cpu().numpy())
+            all_preds_labels.append(preds_labels.argmax(dim=1).cpu().numpy()) # Convert logits to class predictions
+            all_true_labels.append(labels.cpu().numpy())
+            all_embeddings.append(embeddings.cpu().numpy())
+            all_filenames_in_order.extend(filenames)
+
+    # Concatenate all collected data
+    pred_pcs_norm = np.vstack(all_preds_pcs)
+    true_pcs_norm = np.vstack(all_true_pcs)
+    pred_labels = np.concatenate(all_preds_labels)
+    true_labels = np.concatenate(all_true_labels)
+    embeddings = np.vstack(all_embeddings)
+
+    # Get human-readable class names
+    label_names = full_dataset.label_encoder.inverse_transform(np.unique(full_dataset.labels))
+    num_classes = len(label_names)
+
+    # Inverse transform PC values if a scaler was used during preprocessing
+    if scaler is not None:
+        pred_pcs = scaler.inverse_transform(pred_pcs_norm)
+        true_pcs = scaler.inverse_transform(true_pcs_norm)
+        print("Inverse transformed PCs for plotting and metrics.")
+    else:
+        pred_pcs = pred_pcs_norm
+        true_pcs = true_pcs_norm
+
+    # --- OUTPUT: Save Combined Predictions and True Values to CSV ---
+    true_label_names = full_dataset.label_encoder.inverse_transform(true_labels)
+    pred_label_names = full_dataset.label_encoder.inverse_transform(pred_labels)
+
+    results_df = pd.DataFrame({
+        'filename': all_filenames_in_order,
+        'true_label': true_label_names,
+        'predicted_label': pred_label_names,
+        'true_PC1': true_pcs[:, 0],
+        'true_PC2': true_pcs[:, 1],
+        'predicted_PC1': pred_pcs[:, 0],
+        'predicted_PC2': pred_pcs[:, 1]
+    })
+    results_csv_path = os.path.join(output_dir, "predictions_and_true_values.csv")
+    results_df.to_csv(results_csv_path, index=False)
+    print(f"✅ True and predicted values saved to: {results_csv_path}")
+
+
+    # --- Regression Metrics (R2 and Pearsonr) ---
+    r2_pc1 = r2_score(true_pcs[:, 0], pred_pcs[:, 0])
+    r2_pc2 = r2_score(true_pcs[:, 1], pred_pcs[:, 1])
+    pearson_pc1, _ = pearsonr(true_pcs[:, 0], pred_pcs[:, 0])
+    pearson_pc2, _ = pearsonr(true_pcs[:, 1], pred_pcs[:, 1])
+
+    # --- Classification Metrics ---
+    accuracy = accuracy_score(true_labels, pred_labels)
+    precision, recall, f1, _ = precision_recall_fscore_support(true_labels, pred_labels, average=None, labels=np.arange(num_classes))
+    # Calculate weighted averages for overall summary
+    weighted_precision, weighted_recall, weighted_f1, _ = precision_recall_fscore_support(true_labels, pred_labels, average='weighted', labels=np.arange(num_classes))
+
+
+    # --- OUTPUT: Save Metrics to File ---
+    metrics_file_path = os.path.join(output_dir, "metrics.txt")
+    with open(metrics_file_path, 'w') as f:
+        f.write(f"--- Evaluation Metrics {eval_title_suffix} ---\n\n")
+        f.write(f"REGRESSION METRICS:\n")
+        f.write(f"  R2 Score (PC1): {r2_pc1:.4f}\n")
+        f.write(f"  Pearson Correlation (PC1): {pearson_pc1:.4f}\n")
+        f.write(f"  R2 Score (PC2): {r2_pc2:.4f}\n")
+        f.write(f"  Pearson Correlation (PC2): {pearson_pc2:.4f}\n\n")
+
+        f.write(f"CLASSIFICATION METRICS:\n")
+        f.write(f"  Overall Accuracy: {accuracy:.4f}\n\n")
+        f.write(f"  Per-Class Metrics:\n")
+        for i, class_name in enumerate(label_names):
+            f.write(f"    Class '{class_name}':\n")
+            f.write(f"      Precision: {precision[i]:.4f}\n")
+            f.write(f"      Recall: {recall[i]:.4f}\n")
+            f.write(f"      F1-Score: {f1[i]:.4f}\n")
+        f.write(f"\n  Weighted Average Metrics:\n")
+        f.write(f"    Precision (weighted): {weighted_precision:.4f}\n")
+        f.write(f"    Recall (weighted): {weighted_recall:.4f}\n")
+        f.write(f"    F1-Score (weighted): {weighted_f1:.4f}\n")
+    print(f"✅ Metrics saved to: {metrics_file_path}")
+
+
+    # --- Print Metrics to console ---
+    print(f"\n--- Regression Metrics {eval_title_suffix} ---")
+    print(f"R2 Score (PC1): {r2_pc1:.4f}")
+    print(f"Pearson Correlation (PC1): {pearson_pc1:.4f}")
+    print(f"R2 Score (PC2): {r2_pc2:.4f}")
+    print(f"Pearson Correlation (PC2): {pearson_pc2:.4f}")
+
+    print(f"\n--- Classification Metrics {eval_title_suffix} ---")
+    print(f"Overall Accuracy: {accuracy:.4f}")
+    print(f"\nPer-Class Metrics:")
+    for i, class_name in enumerate(label_names):
+        print(f"  Class '{class_name}': Precision={precision[i]:.4f}, Recall={recall[i]:.4f}, F1-Score={f1[i]:.4f}")
+    print(f"\nWeighted Average Metrics:")
+    print(f"  Precision (weighted): {weighted_precision:.4f}")
+    print(f"  Recall (weighted): {weighted_recall:.4f}")
+    print(f"  F1-Score (weighted): {weighted_f1:.4f}")
+
+
+    # --- OUTPUT: Save PC scatter plot (PC1 vs PC2) ---
+    plt.figure(figsize=(8, 8))
+    plt.scatter(true_pcs[:, 0], true_pcs[:, 1], label="True PCs", alpha=0.6, s=50, edgecolors='w')
+    plt.scatter(pred_pcs[:, 0], pred_pcs[:, 1], label="Predicted PCs", alpha=0.6, s=50, edgecolors='w', marker='x')
+    plt.title(f"True vs. Predicted PC Values{eval_title_suffix}")
+    plt.xlabel("PC1")
+    plt.ylabel("PC2")
+    plt.legend()
+    plt.grid(True)
+    plt.axhline(0, color='gray', linestyle='--', linewidth=0.8)
+    plt.axvline(0, color='gray', linestyle='--', linewidth=0.8)
+    plt.savefig(os.path.join(output_dir, "pc_scatter_plot.png"))
+    plt.close()
+
+    # --- OUTPUT: Save Individual PC Scatter Plots ---
+    plt.figure(figsize=(14, 6))
+
+    plt.subplot(1, 2, 1)
+    plt.scatter(true_pcs[:, 0], pred_pcs[:, 0], alpha=0.6, s=50, edgecolors='w')
+    plt.title(f"True vs. Predicted PC1{eval_title_suffix}")
+    plt.xlabel("True PC1")
+    plt.ylabel("Predicted PC1")
+    min_val = min(true_pcs[:, 0].min(), pred_pcs[:, 0].min())
+    max_val = max(true_pcs[:, 0].max(), pred_pcs[:, 0].max())
+    plt.plot([min_val, max_val], [min_val, max_val], 'r--', label='Ideal Fit')
+    plt.grid(True)
+    plt.legend()
+
+    plt.subplot(1, 2, 2)
+    plt.scatter(true_pcs[:, 1], pred_pcs[:, 1], alpha=0.6, s=50, edgecolors='w')
+    plt.title(f"True vs. Predicted PC2{eval_title_suffix}")
+    plt.xlabel("True PC2")
+    plt.ylabel("Predicted PC2")
+    min_val = min(true_pcs[:, 1].min(), pred_pcs[:, 1].min())
+    max_val = max(true_pcs[:, 1].max(), pred_pcs[:, 1].max())
+    plt.plot([min_val, max_val], [min_val, max_val], 'r--', label='Ideal Fit')
+    plt.grid(True)
+    plt.legend()
+
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir, "individual_pc_scatter_plots.png"))
+    plt.close()
+
+
+    # --- OUTPUT: Confusion Matrix Plot ---
+    cm = confusion_matrix(true_labels, pred_labels)
+    plt.figure(figsize=(10, 8))
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=label_names)
+    disp.plot(cmap=plt.cm.Blues, xticks_rotation='vertical')
+    plt.title(f"Confusion Matrix{eval_title_suffix}")
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir, "confusion_matrix.png"))
+    plt.close()
+
+    # --- OUTPUT: UMAP of Embeddings (Colored by True Labels) ---
+    print(f"Generating UMAP plot for {len(embeddings)} embeddings...")
+    reducer_umap = UMAP(random_state=42) # Fixed random_state for reproducibility
+    embeddings_2d_umap = reducer_umap.fit_transform(embeddings)
+
+    plt.figure(figsize=(10, 8))
+    for i, class_name in enumerate(label_names):
+        indices = np.where(true_labels == i)
+        plt.scatter(embeddings_2d_umap[indices, 0], embeddings_2d_umap[indices, 1],
+                    label=class_name, s=20, alpha=0.7)
+    plt.title(f"UMAP of Embeddings (True Labels){eval_title_suffix}")
+    plt.xlabel("UMAP Dimension 1")
+    plt.ylabel("UMAP Dimension 2")
+    plt.legend(title="True Label", bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir, "umap_true_labels.png"))
+    plt.close()
+    print(f"✅ UMAP plot for True Labels saved to: {os.path.join(output_dir, 'umap_true_labels.png')}")
+
+
+    # --- OUTPUT: UMAP of Embeddings (Colored by Predicted Labels) ---
+    plt.figure(figsize=(10, 8))
+    for i, class_name in enumerate(label_names):
+        indices = np.where(pred_labels == i)
+        plt.scatter(embeddings_2d_umap[indices, 0], embeddings_2d_umap[indices, 1],
+                    label=class_name, s=20, alpha=0.7)
+    plt.title(f"UMAP of Embeddings (Predicted Labels){eval_title_suffix}")
+    plt.xlabel("UMAP Dimension 1")
+    plt.ylabel("UMAP Dimension 2")
+    plt.legend(title="Predicted Label", bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir, "umap_pred_labels.png"))
+    plt.close()
+    print(f"✅ UMAP plot for Predicted Labels saved to: {os.path.join(output_dir, 'umap_pred_labels.png')}")
+
+
+    # --- OUTPUT: t-SNE of Embeddings (Colored by True Labels) ---
+    # Note: t-SNE is computationally intensive for very large datasets.
+    # Adjust perplexity and n_iter if you encounter performance issues or warnings.
+    print(f"Generating t-SNE plot for {len(embeddings)} embeddings. This may take some time...")
+    try:
+        reducer_tsne = TSNE(n_components=2, random_state=42, perplexity=30, n_iter=1000)
+        embeddings_2d_tsne = reducer_tsne.fit_transform(embeddings)
+
+        plt.figure(figsize=(10, 8))
+        for i, class_name in enumerate(label_names):
+            indices = np.where(true_labels == i)
+            plt.scatter(embeddings_2d_tsne[indices, 0], embeddings_2d_tsne[indices, 1],
+                        label=class_name, s=20, alpha=0.7)
+        plt.title(f"t-SNE of Embeddings (True Labels){eval_title_suffix}")
+        plt.xlabel("t-SNE Dimension 1")
+        plt.ylabel("t-SNE Dimension 2")
+        plt.legend(title="True Label", bbox_to_anchor=(1.05, 1), loc='upper left')
+        plt.tight_layout()
+        plt.savefig(os.path.join(output_dir, "tsne_true_labels.png"))
+        plt.close()
+        print(f"✅ t-SNE plot for True Labels saved to: {os.path.join(output_dir, 'tsne_true_labels.png')}")
+
+        # --- OUTPUT: t-SNE of Embeddings (Colored by Predicted Labels) ---
+        plt.figure(figsize=(10, 8))
+        for i, class_name in enumerate(label_names):
+            indices = np.where(pred_labels == i)
+            plt.scatter(embeddings_2d_tsne[indices, 0], embeddings_2d_tsne[indices, 1],
+                        label=class_name, s=20, alpha=0.7)
+        plt.title(f"t-SNE of Embeddings (Predicted Labels){eval_title_suffix}")
+        plt.xlabel("t-SNE Dimension 1")
+        plt.ylabel("t-SNE Dimension 2")
+        plt.legend(title="Predicted Label", bbox_to_anchor=(1.05, 1), loc='upper left')
+        plt.tight_layout()
+        plt.savefig(os.path.join(output_dir, "tsne_pred_labels.png"))
+        plt.close()
+        print(f"✅ t-SNE plot for Predicted Labels saved to: {os.path.join(output_dir, 'tsne_pred_labels.png')}")
+
+    except Exception as e:
+        print(f"⚠️ Warning: Could not generate t-SNE plots. Error: {e}")
+        print("t-SNE can be sensitive to data size/distribution. Consider reducing 'perplexity' or 'n_iter' if issues persist.")
+
+    print(f"--- Model Evaluation on {data_split.upper()} data Finished. Results in: {output_dir} ---")
+
+
+# ====================================================================================================
+# 6. Main Execution Block: Defines parameters and runs the full pipeline
+#    (PRESERVED BEST MODEL'S PARAMETERS, added clear comments for external inputs)
+# ====================================================================================================
+if __name__ == "__main__":
+    # --- Configuration Parameters for the BEST MODEL ---
+    # These parameters are critical for reproducing the best performance
+    # and should be carefully considered for any modifications.
+    DATA_DIR = "PIXEL_IMAGES" # Output folder for generated pixel images and metadata
+    LEARNING_RATE = 3e-4  # Model training learning rate (Adam optimizer)
+    EPOCHS = 150 # Maximum number of training epochs
+    ALPHA_CLASSIFICATION_WEIGHT = 0.3 # Weight for classification loss in the total loss
+    EVAL_INTERVAL = 5 # Frequency (in epochs) for validation and early stopping check
+    N_ROTATIONS = 20 # Number of rotations (augmentations) per original leaf in preprocessing
+    BLADE_NOISE_PROPORTION_RANGE = (0.0, 0.2) # Min and max proportion of blade pixels to remove (clumped noise)
+    VEIN_NOISE_PROPORTION_RANGE = (0.0, 1.0)  # Min and max proportion of vein pixels to remove (Gaussian-weighted)
+    BLADE_NOISE_NUM_CLUMPS = (1, 5) # Min and max number of distinct clumps for blade noise
+
+    # --- INPUTS from Jupyter Notebook Environment (EXPECTED TO BE DEFINED EXTERNALLY) ---
+    # The following variables are assumed to be defined in previous cells of your Jupyter Notebook
+    # before this script block is executed. They represent your raw input data.
+    # For standalone execution, you would need to load/define these variables here.
+    try:
+        # Example (DO NOT uncomment if running in Jupyter with external definitions):
+        # file_substrings = ["leaf_A", "leaf_B"] # List of unique identifiers for your leaf data files
+        # geno_labels = ["algeria", "dissected"] # List of genotype/class labels corresponding to each leaf
+        # PCs = np.array([[1.2, 0.5], [-0.8, 1.1]]) # NumPy array of PC values for each leaf
+
+        # Check if they are defined (will raise NameError if not)
+        _ = file_substrings
+        _ = geno_labels
+        _ = PCs
+        print("\n✅ External input data (file_substrings, geno_labels, PCs) detected.")
+
+    except NameError as e:
+        print(f"\nFATAL ERROR: Required input variable '{e.name}' is not defined.")
+        print("Please ensure your Jupyter Notebook cells defining 'file_substrings', 'geno_labels', and 'PCs' have been executed.")
+        print("Exiting script.")
+        exit()
+    except Exception as e:
+        print(f"\nAn unexpected error occurred while checking external inputs: {e}")
+        print("Exiting script.")
+        exit()
+
+
+    # --- Step 1: Preprocessing and Training Data Generation ---
+    # This step generates the pixel-based images from your landmark data
+    # and saves them along with metadata and the PC scaler.
+    print("\n--- Running Preprocessing to generate PIXEL_IMAGES ---")
+    try:
+        preprocess_leaf_masks(data_folder="data", # INPUT: Folder containing your .txt landmark files
+                              PCs=PCs,
+                              names=file_substrings,
+                              labels=geno_labels,
+                              resolution=512,
+                              n_rotations=N_ROTATIONS,
+                              output_folder=DATA_DIR,
+                              normalize_pcs=True, # Normalize PCs (recommended for training stability)
+                              blade_noise_prop_range=BLADE_NOISE_PROPORTION_RANGE,
+                              vein_noise_prop_range=VEIN_NOISE_PROPORTION_RANGE,
+                              blade_noise_num_clumps=BLADE_NOISE_NUM_CLUMPS)
+        print("--- PIXEL_IMAGES generated successfully ---")
+
+    except FileNotFoundError as e:
+        print(f"\nERROR: Data files not found during preprocessing: {e}")
+        print("Please ensure your 'data' folder exists and contains the necessary 'blade' and 'veins' .txt files,")
+        print("and that the `file_substrings` provided match their prefixes.")
+        print("Exiting script because preprocessing failed.")
+        exit()
+    except Exception as e:
+        print(f"\nAn unexpected error occurred during preprocessing: {e}")
+        print("Please check your data loading and preprocess_leaf_masks parameters.")
+        print("Exiting script because preprocessing failed.")
+        exit()
+
+
+    # --- Step 2: Train the Multi-task CNN Model ---
+    # This step trains the CNN on the generated image data.
+    # The best model (based on validation loss) will be saved.
+    print("\n--- Starting Model Training ---")
+    model, train_losses, val_losses = train_model(
+        data_dir=DATA_DIR,
+        lr=LEARNING_RATE,
+        epochs=EPOCHS,
+        alpha=ALPHA_CLASSIFICATION_WEIGHT,
+        eval_interval=EVAL_INTERVAL
+    )
+    print("--- Model Training Finished ---")
+
+    # --- Step 3: Evaluate the Model on All Data ---
+    # Generates performance metrics, plots, and a CSV of predictions for the entire dataset.
+    print("\n--- Starting Model Evaluation (All Data) ---")
+    evaluate_model(data_dir=DATA_DIR, data_split='all')
+    print("--- Model Evaluation (All Data) Finished ---")
+
+    # --- Step 4: Evaluate the Model on Validation Data Only ---
+    # Generates performance metrics, plots, and a CSV of predictions specifically for the validation set.
+    print("\n--- Starting Model Evaluation (Validation Data) ---")
+    evaluate_model(data_dir=DATA_DIR, data_split='validation')
+    print("--- Model Evaluation (Validation Data) Finished ---")
+
+    print("\n--- All pipeline steps completed successfully! ---")
