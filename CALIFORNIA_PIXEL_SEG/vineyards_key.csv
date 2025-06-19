@@ -1,0 +1,630 @@
+﻿sample,rootstock,scion,location,year
+C_1,5C,chard,san joaquin,y2018
+C_2,5C,chard,san joaquin,y2018
+C_3,5C,chard,san joaquin,y2018
+C_4,1103P,chard,san joaquin,y2018
+C_5,1103P,chard,san joaquin,y2018
+C_6,1103P,chard,san joaquin,y2018
+C_7,freedom,chard,san joaquin,y2018
+C_8,freedom,chard,san joaquin,y2018
+C_9,freedom,chard,san joaquin,y2018
+C_10,freedom,cab,san joaquin,y2018
+C_11,freedom,cab,san joaquin,y2018
+C_12,freedom,cab,san joaquin,y2018
+C_13,5C,cab,san joaquin,y2018
+C_14,5C,cab,san joaquin,y2018
+C_15,5C,cab,san joaquin,y2018
+C_16,1103P,cab,san joaquin,y2018
+C_17,1103P,cab,san joaquin,y2018
+C_18,1103P,cab,san joaquin,y2018
+C_19,1103P,cab,merced,y2018
+C_20,1103P,cab,merced,y2018
+C_21,1103P,cab,merced,y2018
+C_22,freedom,cab,merced,y2018
+C_23,freedom,cab,merced,y2018
+C_24,freedom,cab,merced,y2018
+C_25,freedom,chard,merced,y2018
+C_26,freedom,chard,merced,y2018
+C_27,freedom,chard,merced,y2018
+C_28,5C,chard,merced,y2018
+C_29,5C,chard,merced,y2018
+C_30,5C,chard,merced,y2018
+C_31,5C,cab,madera,y2018
+C_32,5C,cab,madera,y2018
+C_33,5C,cab,madera,y2018
+C_34,1103P,chard,madera,y2018
+C_35,1103P,chard,madera,y2018
+C_36,1103P,chard,madera,y2018
+C_37,freedom,cab,madera,y2018
+C_38,freedom,cab,madera,y2018
+C_39,freedom,cab,madera,y2018
+C_40,freedom,chard,madera,y2018
+C_41,freedom,chard,madera,y2018
+C_42,freedom,chard,madera,y2018
+C_43,5C,cab,san joaquin,y2018
+C_44,5C,cab,san joaquin,y2018
+C_45,5C,cab,san joaquin,y2018
+C_46,1103P,cab,san joaquin,y2018
+C_47,1103P,cab,san joaquin,y2018
+C_48,1103P,cab,san joaquin,y2018
+C_49,freedom,cab,san joaquin,y2018
+C_50,freedom,cab,san joaquin,y2018
+C_51,freedom,cab,san joaquin,y2018
+C_52,1103P,chard,san joaquin,y2018
+C_53,1103P,chard,san joaquin,y2018
+C_54,1103P,chard,san joaquin,y2018
+C_55,5C,chard,san joaquin,y2018
+C_56,5C,chard,san joaquin,y2018
+C_57,5C,chard,san joaquin,y2018
+C_58,freedom,chard,san joaquin,y2018
+C_59,freedom,chard,san joaquin,y2018
+C_60,freedom,chard,san joaquin,y2018
+C_61,freedom,cab,merced,y2018
+C_62,freedom,cab,merced,y2018
+C_63,freedom,cab,merced,y2018
+C_64,freedom,chard,merced,y2018
+C_65,freedom,chard,merced,y2018
+C_66,freedom,chard,merced,y2018
+C_67,5C,chard,merced,y2018
+C_68,5C,chard,merced,y2018
+C_69,5C,chard,merced,y2018
+C_70,1103P,cab,merced,y2018
+C_71,1103P,cab,merced,y2018
+C_72,1103P,cab,merced,y2018
+C_73,1103P,chard,madera,y2018
+C_74,1103P,chard,madera,y2018
+C_75,1103P,chard,madera,y2018
+C_76,freedom,cab,madera,y2018
+C_77,freedom,cab,madera,y2018
+C_78,freedom,cab,madera,y2018
+C_79,freedom,chard,madera,y2018
+C_80,freedom,chard,madera,y2018
+C_81,freedom,chard,madera,y2018
+C_82,5C,cab,madera,y2018
+C_83,5C,cab,madera,y2018
+C_84,5C,cab,madera,y2018
+C_85,5C,chard,san joaquin,y2018
+C_86,5C,chard,san joaquin,y2018
+C_87,5C,chard,san joaquin,y2018
+C_88,1103P,chard,san joaquin,y2018
+C_89,1103P,chard,san joaquin,y2018
+C_90,1103P,chard,san joaquin,y2018
+C_91,freedom,chard,san joaquin,y2018
+C_92,freedom,chard,san joaquin,y2018
+C_93,freedom,chard,san joaquin,y2018
+C_94,5C,cab,san joaquin,y2018
+C_95,5C,cab,san joaquin,y2018
+C_96,5C,cab,san joaquin,y2018
+C_97,1103P,cab,san joaquin,y2018
+C_98,1103P,cab,san joaquin,y2018
+C_99,1103P,cab,san joaquin,y2018
+C_100,freedom,cab,san joaquin,y2018
+C_101,freedom,cab,san joaquin,y2018
+C_102,freedom,cab,san joaquin,y2018
+C_103,freedom,chard,merced,y2018
+C_104,freedom,chard,merced,y2018
+C_105,freedom,chard,merced,y2018
+C_106,5C,chard,merced,y2018
+C_107,5C,chard,merced,y2018
+C_108,5C,chard,merced,y2018
+C_109,1103P,cab,merced,y2018
+C_110,1103P,cab,merced,y2018
+C_111,1103P,cab,merced,y2018
+C_112,freedom,cab,merced,y2018
+C_113,freedom,cab,merced,y2018
+C_114,freedom,cab,merced,y2018
+C_115,freedom,cab,madera,y2018
+C_116,freedom,cab,madera,y2018
+C_117,freedom,cab,madera,y2018
+C_118,freedom,chard,madera,y2018
+C_119,freedom,chard,madera,y2018
+C_120,freedom,chard,madera,y2018
+C_121,5C,cab,madera,y2018
+C_122,5C,cab,madera,y2018
+C_123,5C,cab,madera,y2018
+C_124,1103P,chard,madera,y2018
+C_125,1103P,chard,madera,y2018
+C_126,1103P,chard,madera,y2018
+C_127,5C,cab,san joaquin,y2018
+C_128,5C,cab,san joaquin,y2018
+C_129,5C,cab,san joaquin,y2018
+C_130,1103P,cab,san joaquin,y2018
+C_131,1103P,cab,san joaquin,y2018
+C_132,1103P,cab,san joaquin,y2018
+C_133,freedom,cab,san joaquin,y2018
+C_134,freedom,cab,san joaquin,y2018
+C_135,freedom,cab,san joaquin,y2018
+C_136,1103P,chard,san joaquin,y2018
+C_137,1103P,chard,san joaquin,y2018
+C_138,1103P,chard,san joaquin,y2018
+C_139,5C,chard,san joaquin,y2018
+C_140,5C,chard,san joaquin,y2018
+C_141,5C,chard,san joaquin,y2018
+C_142,freedom,chard,san joaquin,y2018
+C_143,freedom,chard,san joaquin,y2018
+C_144,freedom,chard,san joaquin,y2018
+C_145,5C,chard,merced,y2018
+C_146,5C,chard,merced,y2018
+C_147,5C,chard,merced,y2018
+C_148,1103P,cab,merced,y2018
+C_149,1103P,cab,merced,y2018
+C_150,1103P,cab,merced,y2018
+C_151,freedom,cab,merced,y2018
+C_152,freedom,cab,merced,y2018
+C_153,freedom,cab,merced,y2018
+C_154,freedom,chard,merced,y2018
+C_155,freedom,chard,merced,y2018
+C_156,freedom,chard,merced,y2018
+C_157,freedom,chard,madera,y2018
+C_158,freedom,chard,madera,y2018
+C_159,freedom,chard,madera,y2018
+C_160,5C,cab,madera,y2018
+C_161,5C,cab,madera,y2018
+C_162,5C,cab,madera,y2018
+C_163,1103P,chard,madera,y2018
+C_164,1103P,chard,madera,y2018
+C_165,1103P,chard,madera,y2018
+C_166,freedom,cab,madera,y2018
+C_167,freedom,cab,madera,y2018
+C_168,freedom,cab,madera,y2018
+C_169,5C,chard,san joaquin,y2018
+C_170,5C,chard,san joaquin,y2018
+C_171,5C,chard,san joaquin,y2018
+C_172,1103P,chard,san joaquin,y2018
+C_173,1103P,chard,san joaquin,y2018
+C_174,1103P,chard,san joaquin,y2018
+C_175,freedom,chard,san joaquin,y2018
+C_176,freedom,chard,san joaquin,y2018
+C_177,freedom,chard,san joaquin,y2018
+C_178,freedom,cab,san joaquin,y2018
+C_179,freedom,cab,san joaquin,y2018
+C_180,freedom,cab,san joaquin,y2018
+C_181,5C,cab,san joaquin,y2018
+C_182,5C,cab,san joaquin,y2018
+C_183,5C,cab,san joaquin,y2018
+C_184,1103P,cab,san joaquin,y2018
+C_185,1103P,cab,san joaquin,y2018
+C_186,1103P,cab,san joaquin,y2018
+C_187,1103P,cab,merced,y2018
+C_188,1103P,cab,merced,y2018
+C_189,1103P,cab,merced,y2018
+C_190,freedom,cab,merced,y2018
+C_191,freedom,cab,merced,y2018
+C_192,freedom,cab,merced,y2018
+C_193,freedom,chard,merced,y2018
+C_194,freedom,chard,merced,y2018
+C_195,freedom,chard,merced,y2018
+C_196,5C,chard,merced,y2018
+C_197,5C,chard,merced,y2018
+C_198,5C,chard,merced,y2018
+C_199,5C,cab,madera,y2018
+C_200,5C,cab,madera,y2018
+C_201,5C,cab,madera,y2018
+C_202,1103P,chard,madera,y2018
+C_203,1103P,chard,madera,y2018
+C_204,1103P,chard,madera,y2018
+C_205,freedom,cab,madera,y2018
+C_206,freedom,cab,madera,y2018
+C_207,freedom,cab,madera,y2018
+C_208,freedom,chard,madera,y2018
+C_209,freedom,chard,madera,y2018
+C_210,freedom,chard,madera,y2018
+C_211,5C,cab,san joaquin,y2018
+C_212,5C,cab,san joaquin,y2018
+C_213,5C,cab,san joaquin,y2018
+C_214,1103P,cab,san joaquin,y2018
+C_215,1103P,cab,san joaquin,y2018
+C_216,1103P,cab,san joaquin,y2018
+C_217,freedom,cab,san joaquin,y2018
+C_218,freedom,cab,san joaquin,y2018
+C_219,freedom,cab,san joaquin,y2018
+C_220,1103P,chard,san joaquin,y2018
+C_221,1103P,chard,san joaquin,y2018
+C_222,1103P,chard,san joaquin,y2018
+C_223,5C,chard,san joaquin,y2018
+C_224,5C,chard,san joaquin,y2018
+C_225,5C,chard,san joaquin,y2018
+C_226,freedom,chard,san joaquin,y2018
+C_227,freedom,chard,san joaquin,y2018
+C_228,freedom,chard,san joaquin,y2018
+C_229,freedom,cab,merced,y2018
+C_230,freedom,cab,merced,y2018
+C_231,freedom,cab,merced,y2018
+C_232,freedom,chard,merced,y2018
+C_233,freedom,chard,merced,y2018
+C_234,freedom,chard,merced,y2018
+C_235,5C,chard,merced,y2018
+C_236,5C,chard,merced,y2018
+C_237,5C,chard,merced,y2018
+C_238,1103P,cab,merced,y2018
+C_239,1103P,cab,merced,y2018
+C_240,1103P,cab,merced,y2018
+C_241,1103P,chard,madera,y2018
+C_242,1103P,chard,madera,y2018
+C_243,1103P,chard,madera,y2018
+C_244,freedom,cab,madera,y2018
+C_245,freedom,cab,madera,y2018
+C_246,freedom,cab,madera,y2018
+C_247,freedom,chard,madera,y2018
+C_248,freedom,chard,madera,y2018
+C_249,freedom,chard,madera,y2018
+C_250,5C,cab,madera,y2018
+C_251,5C,cab,madera,y2018
+C_252,5C,cab,madera,y2018
+C_253,5C,chard,san joaquin,y2018
+C_254,5C,chard,san joaquin,y2018
+C_255,5C,chard,san joaquin,y2018
+C_256,1103P,chard,san joaquin,y2018
+C_257,1103P,chard,san joaquin,y2018
+C_258,1103P,chard,san joaquin,y2018
+C_259,freedom,chard,san joaquin,y2018
+C_260,freedom,chard,san joaquin,y2018
+C_261,freedom,chard,san joaquin,y2018
+C_262,5C,cab,san joaquin,y2018
+C_263,5C,cab,san joaquin,y2018
+C_264,5C,cab,san joaquin,y2018
+C_265,1103P,cab,san joaquin,y2018
+C_266,1103P,cab,san joaquin,y2018
+C_267,1103P,cab,san joaquin,y2018
+C_268,freedom,cab,san joaquin,y2018
+C_269,freedom,cab,san joaquin,y2018
+C_270,freedom,cab,san joaquin,y2018
+C_271,freedom,chard,merced,y2018
+C_272,freedom,chard,merced,y2018
+C_273,freedom,chard,merced,y2018
+C_274,5C,chard,merced,y2018
+C_275,5C,chard,merced,y2018
+C_276,5C,chard,merced,y2018
+C_277,1103P,cab,merced,y2018
+C_278,1103P,cab,merced,y2018
+C_279,1103P,cab,merced,y2018
+C_280,freedom,cab,merced,y2018
+C_281,freedom,cab,merced,y2018
+C_282,freedom,cab,merced,y2018
+C_283,freedom,cab,madera,y2018
+C_284,freedom,cab,madera,y2018
+C_285,freedom,cab,madera,y2018
+C_286,freedom,chard,madera,y2018
+C_287,freedom,chard,madera,y2018
+C_288,freedom,chard,madera,y2018
+C_289,5C,cab,madera,y2018
+C_290,5C,cab,madera,y2018
+C_291,5C,cab,madera,y2018
+C_292,1103P,chard,madera,y2018
+C_293,1103P,chard,madera,y2018
+C_294,1103P,chard,madera,y2018
+C_295,5C,cab,san joaquin,y2018
+C_296,5C,cab,san joaquin,y2018
+C_297,5C,cab,san joaquin,y2018
+C_298,1103P,cab,san joaquin,y2018
+C_299,1103P,cab,san joaquin,y2018
+C_300,1103P,cab,san joaquin,y2018
+C_301,freedom,cab,san joaquin,y2018
+C_302,freedom,cab,san joaquin,y2018
+C_303,freedom,cab,san joaquin,y2018
+C_304,5C,chard,san joaquin,y2018
+C_305,5C,chard,san joaquin,y2018
+C_306,5C,chard,san joaquin,y2018
+C_307,1103P,chard,san joaquin,y2018
+C_308,1103P,chard,san joaquin,y2018
+C_309,1103P,chard,san joaquin,y2018
+C_310,freedom,chard,san joaquin,y2018
+C_311,freedom,chard,san joaquin,y2018
+C_312,freedom,chard,san joaquin,y2018
+C_313,5C,chard,merced,y2018
+C_314,5C,chard,merced,y2018
+C_315,5C,chard,merced,y2018
+C_316,1103P,cab,merced,y2018
+C_317,1103P,cab,merced,y2018
+C_318,1103P,cab,merced,y2018
+C_319,freedom,cab,merced,y2018
+C_320,freedom,cab,merced,y2018
+C_321,freedom,cab,merced,y2018
+C_322,freedom,chard,merced,y2018
+C_323,freedom,chard,merced,y2018
+C_324,freedom,chard,merced,y2018
+C_325,freedom,chard,madera,y2018
+C_326,freedom,chard,madera,y2018
+C_327,freedom,chard,madera,y2018
+C_328,5C,cab,madera,y2018
+C_329,5C,cab,madera,y2018
+C_330,5C,cab,madera,y2018
+C_331,1103P,chard,madera,y2018
+C_332,1103P,chard,madera,y2018
+C_333,1103P,chard,madera,y2018
+C_334,freedom,cab,madera,y2018
+C_335,freedom,cab,madera,y2018
+C_336,freedom,cab,madera,y2018
+C_337,5C,cab,san joaquin,y2019
+C_338,5C,cab,san joaquin,y2019
+C_339,5C,cab,san joaquin,y2019
+C_340,1103P,cab,san joaquin,y2019
+C_341,1103P,cab,san joaquin,y2019
+C_342,1103P,cab,san joaquin,y2019
+C_343,freedom,cab,san joaquin,y2019
+C_344,freedom,cab,san joaquin,y2019
+C_345,freedom,cab,san joaquin,y2019
+C_346,1103P,chard,san joaquin,y2019
+C_347,1103P,chard,san joaquin,y2019
+C_348,1103P,chard,san joaquin,y2019
+C_349,5C,chard,san joaquin,y2019
+C_350,5C,chard,san joaquin,y2019
+C_351,5C,chard,san joaquin,y2019
+C_352,freedom,chard,san joaquin,y2019
+C_353,freedom,chard,san joaquin,y2019
+C_354,freedom,chard,san joaquin,y2019
+C_355,freedom,cab,merced,y2019
+C_356,freedom,cab,merced,y2019
+C_357,freedom,cab,merced,y2019
+C_358,freedom,chard,merced,y2019
+C_359,freedom,chard,merced,y2019
+C_360,freedom,chard,merced,y2019
+C_361,5C,chard,merced,y2019
+C_362,5C,chard,merced,y2019
+C_363,5C,chard,merced,y2019
+C_364,1103P,cab,merced,y2019
+C_365,1103P,cab,merced,y2019
+C_366,1103P,cab,merced,y2019
+C_367,1103P,chard,madera,y2019
+C_368,1103P,chard,madera,y2019
+C_369,1103P,chard,madera,y2019
+C_370,freedom,cab,madera,y2019
+C_371,freedom,cab,madera,y2019
+C_372,freedom,cab,madera,y2019
+C_373,freedom,chard,madera,y2019
+C_374,freedom,chard,madera,y2019
+C_375,freedom,chard,madera,y2019
+C_376,5C,cab,madera,y2019
+C_377,5C,cab,madera,y2019
+C_378,5C,cab,madera,y2019
+C_379,5C,chard,san joaquin,y2019
+C_380,5C,chard,san joaquin,y2019
+C_381,5C,chard,san joaquin,y2019
+C_382,1103P,chard,san joaquin,y2019
+C_383,1103P,chard,san joaquin,y2019
+C_384,1103P,chard,san joaquin,y2019
+C_385,freedom,chard,san joaquin,y2019
+C_386,freedom,chard,san joaquin,y2019
+C_387,freedom,chard,san joaquin,y2019
+C_388,5C,cab,san joaquin,y2019
+C_389,5C,cab,san joaquin,y2019
+C_390,5C,cab,san joaquin,y2019
+C_391,1103P,cab,san joaquin,y2019
+C_392,1103P,cab,san joaquin,y2019
+C_393,1103P,cab,san joaquin,y2019
+C_394,freedom,cab,san joaquin,y2019
+C_395,freedom,cab,san joaquin,y2019
+C_396,freedom,cab,san joaquin,y2019
+C_397,freedom,chard,merced,y2019
+C_398,freedom,chard,merced,y2019
+C_399,freedom,chard,merced,y2019
+C_400,5C,chard,merced,y2019
+C_401,5C,chard,merced,y2019
+C_402,5C,chard,merced,y2019
+C_403,1103P,cab,merced,y2019
+C_404,1103P,cab,merced,y2019
+C_405,1103P,cab,merced,y2019
+C_406,freedom,cab,merced,y2019
+C_407,freedom,cab,merced,y2019
+C_408,freedom,cab,merced,y2019
+C_409,freedom,cab,madera,y2019
+C_410,freedom,cab,madera,y2019
+C_411,freedom,cab,madera,y2019
+C_412,freedom,chard,madera,y2019
+C_413,freedom,chard,madera,y2019
+C_414,freedom,chard,madera,y2019
+C_415,5C,cab,madera,y2019
+C_416,5C,cab,madera,y2019
+C_417,5C,cab,madera,y2019
+C_418,1103P,chard,madera,y2019
+C_419,1103P,chard,madera,y2019
+C_420,1103P,chard,madera,y2019
+C_421,5C,cab,san joaquin,y2019
+C_422,5C,cab,san joaquin,y2019
+C_423,1103P,cab,san joaquin,y2019
+C_424,1103P,cab,san joaquin,y2019
+C_425,1103P,cab,san joaquin,y2019
+C_426,freedom,cab,san joaquin,y2019
+C_427,freedom,cab,san joaquin,y2019
+C_428,freedom,cab,san joaquin,y2019
+C_429,1103P,chard,san joaquin,y2019
+C_430,1103P,chard,san joaquin,y2019
+C_431,1103P,chard,san joaquin,y2019
+C_432,5C,chard,san joaquin,y2019
+C_433,5C,chard,san joaquin,y2019
+C_434,5C,chard,san joaquin,y2019
+C_435,freedom,chard,san joaquin,y2019
+C_436,freedom,chard,san joaquin,y2019
+C_437,freedom,chard,san joaquin,y2019
+C_438,5C,chard,merced,y2019
+C_439,5C,chard,merced,y2019
+C_440,5C,chard,merced,y2019
+C_441,1103P,cab,merced,y2019
+C_442,1103P,cab,merced,y2019
+C_443,1103P,cab,merced,y2019
+C_444,freedom,cab,merced,y2019
+C_445,freedom,cab,merced,y2019
+C_446,freedom,cab,merced,y2019
+C_447,freedom,chard,merced,y2019
+C_448,freedom,chard,merced,y2019
+C_449,freedom,chard,merced,y2019
+C_450,freedom,chard,madera,y2019
+C_451,freedom,chard,madera,y2019
+C_452,freedom,chard,madera,y2019
+C_453,5C,cab,madera,y2019
+C_454,5C,cab,madera,y2019
+C_455,5C,cab,madera,y2019
+C_456,1103P,chard,madera,y2019
+C_457,1103P,chard,madera,y2019
+C_458,1103P,chard,madera,y2019
+C_459,freedom,cab,madera,y2019
+C_460,freedom,cab,madera,y2019
+C_461,freedom,cab,madera,y2019
+C_462,5C,chard,san joaquin,y2019
+C_463,5C,chard,san joaquin,y2019
+C_464,5C,chard,san joaquin,y2019
+C_465,1103P,chard,san joaquin,y2019
+C_466,1103P,chard,san joaquin,y2019
+C_467,1103P,chard,san joaquin,y2019
+C_468,freedom,chard,san joaquin,y2019
+C_469,freedom,chard,san joaquin,y2019
+C_470,freedom,chard,san joaquin,y2019
+C_471,freedom,cab,san joaquin,y2019
+C_472,freedom,cab,san joaquin,y2019
+C_473,freedom,cab,san joaquin,y2019
+C_474,5C,cab,san joaquin,y2019
+C_475,5C,cab,san joaquin,y2019
+C_476,5C,cab,san joaquin,y2019
+C_477,1103P,cab,san joaquin,y2019
+C_478,1103P,cab,san joaquin,y2019
+C_479,1103P,cab,san joaquin,y2019
+C_480,1103P,cab,merced,y2019
+C_481,1103P,cab,merced,y2019
+C_482,1103P,cab,merced,y2019
+C_483,freedom,cab,merced,y2019
+C_484,freedom,cab,merced,y2019
+C_485,freedom,cab,merced,y2019
+C_486,freedom,chard,merced,y2019
+C_487,freedom,chard,merced,y2019
+C_488,freedom,chard,merced,y2019
+C_489,5C,chard,merced,y2019
+C_490,5C,chard,merced,y2019
+C_491,5C,chard,merced,y2019
+C_492,5C,cab,madera,y2019
+C_493,5C,cab,madera,y2019
+C_494,5C,cab,madera,y2019
+C_495,1103P,chard,madera,y2019
+C_496,1103P,chard,madera,y2019
+C_497,1103P,chard,madera,y2019
+C_498,freedom,cab,madera,y2019
+C_499,freedom,cab,madera,y2019
+C_500,freedom,cab,madera,y2019
+C_501,freedom,chard,madera,y2019
+C_502,freedom,chard,madera,y2019
+C_503,freedom,chard,madera,y2019
+C_504,5C,cab,san joaquin,y2019
+C_505,5C,cab,san joaquin,y2019
+C_506,5C,cab,san joaquin,y2019
+C_507,1103P,cab,san joaquin,y2019
+C_508,1103P,cab,san joaquin,y2019
+C_509,1103P,cab,san joaquin,y2019
+C_510,freedom,cab,san joaquin,y2019
+C_511,freedom,cab,san joaquin,y2019
+C_512,freedom,cab,san joaquin,y2019
+C_513,1103P,chard,san joaquin,y2019
+C_514,1103P,chard,san joaquin,y2019
+C_515,1103P,chard,san joaquin,y2019
+C_516,5C,chard,san joaquin,y2019
+C_517,5C,chard,san joaquin,y2019
+C_518,5C,chard,san joaquin,y2019
+C_519,freedom,chard,san joaquin,y2019
+C_520,freedom,chard,san joaquin,y2019
+C_521,freedom,chard,san joaquin,y2019
+C_522,freedom,cab,merced,y2019
+C_523,freedom,cab,merced,y2019
+C_524,freedom,cab,merced,y2019
+C_525,freedom,chard,merced,y2019
+C_526,freedom,chard,merced,y2019
+C_527,freedom,chard,merced,y2019
+C_528,5C,chard,merced,y2019
+C_529,5C,chard,merced,y2019
+C_530,5C,chard,merced,y2019
+C_531,1103P,cab,merced,y2019
+C_532,1103P,cab,merced,y2019
+C_533,1103P,cab,merced,y2019
+C_534,1103P,chard,madera,y2019
+C_535,1103P,chard,madera,y2019
+C_536,1103P,chard,madera,y2019
+C_537,freedom,cab,madera,y2019
+C_538,freedom,cab,madera,y2019
+C_539,freedom,cab,madera,y2019
+C_540,freedom,chard,madera,y2019
+C_541,freedom,chard,madera,y2019
+C_542,freedom,chard,madera,y2019
+C_543,5C,cab,madera,y2019
+C_544,5C,cab,madera,y2019
+C_545,5C,cab,madera,y2019
+C_546,5C,chard,san joaquin,y2019
+C_547,5C,chard,san joaquin,y2019
+C_548,5C,chard,san joaquin,y2019
+C_549,1103P,chard,san joaquin,y2019
+C_550,1103P,chard,san joaquin,y2019
+C_551,1103P,chard,san joaquin,y2019
+C_552,freedom,chard,san joaquin,y2019
+C_553,freedom,chard,san joaquin,y2019
+C_554,freedom,chard,san joaquin,y2019
+C_555,5C,cab,san joaquin,y2019
+C_556,5C,cab,san joaquin,y2019
+C_557,5C,cab,san joaquin,y2019
+C_558,1103P,cab,san joaquin,y2019
+C_559,1103P,cab,san joaquin,y2019
+C_560,1103P,cab,san joaquin,y2019
+C_561,freedom,cab,san joaquin,y2019
+C_562,freedom,cab,san joaquin,y2019
+C_563,freedom,cab,san joaquin,y2019
+C_564,freedom,chard,merced,y2019
+C_565,freedom,chard,merced,y2019
+C_566,freedom,chard,merced,y2019
+C_567,5C,chard,merced,y2019
+C_568,5C,chard,merced,y2019
+C_569,5C,chard,merced,y2019
+C_570,1103P,cab,merced,y2019
+C_571,1103P,cab,merced,y2019
+C_572,1103P,cab,merced,y2019
+C_573,freedom,cab,merced,y2019
+C_574,freedom,cab,merced,y2019
+C_575,freedom,cab,merced,y2019
+C_576,freedom,cab,madera,y2019
+C_577,freedom,cab,madera,y2019
+C_578,freedom,cab,madera,y2019
+C_579,freedom,chard,madera,y2019
+C_580,freedom,chard,madera,y2019
+C_581,freedom,chard,madera,y2019
+C_582,5C,cab,madera,y2019
+C_583,5C,cab,madera,y2019
+C_584,5C,cab,madera,y2019
+C_585,1103P,chard,madera,y2019
+C_586,1103P,chard,madera,y2019
+C_587,1103P,chard,madera,y2019
+C_588,5C,cab,san joaquin,y2019
+C_589,5C,cab,san joaquin,y2019
+C_590,5C,cab,san joaquin,y2019
+C_591,1103P,cab,san joaquin,y2019
+C_592,1103P,cab,san joaquin,y2019
+C_593,1103P,cab,san joaquin,y2019
+C_594,freedom,cab,san joaquin,y2019
+C_595,freedom,cab,san joaquin,y2019
+C_596,freedom,cab,san joaquin,y2019
+C_597,5C,chard,san joaquin,y2019
+C_598,5C,chard,san joaquin,y2019
+C_599,5C,chard,san joaquin,y2019
+C_600,1103P,chard,san joaquin,y2019
+C_601,1103P,chard,san joaquin,y2019
+C_602,1103P,chard,san joaquin,y2019
+C_603,freedom,chard,san joaquin,y2019
+C_604,freedom,chard,san joaquin,y2019
+C_605,freedom,chard,san joaquin,y2019
+C_606,5C,chard,merced,y2019
+C_607,5C,chard,merced,y2019
+C_608,5C,chard,merced,y2019
+C_609,1103P,cab,merced,y2019
+C_610,1103P,cab,merced,y2019
+C_611,1103P,cab,merced,y2019
+C_612,freedom,cab,merced,y2019
+C_613,freedom,cab,merced,y2019
+C_614,freedom,cab,merced,y2019
+C_615,freedom,chard,merced,y2019
+C_616,freedom,chard,merced,y2019
+C_617,freedom,chard,merced,y2019
+C_618,freedom,chard,madera,y2019
+C_619,freedom,chard,madera,y2019
+C_620,freedom,chard,madera,y2019
+C_621,5C,cab,madera,y2019
+C_622,5C,cab,madera,y2019
+C_623,5C,cab,madera,y2019
+C_624,1103P,chard,madera,y2019
+C_625,1103P,chard,madera,y2019
+C_626,1103P,chard,madera,y2019
+C_627,freedom,cab,madera,y2019
+C_628,freedom,cab,madera,y2019
+C_629,freedom,cab,madera,y2019
