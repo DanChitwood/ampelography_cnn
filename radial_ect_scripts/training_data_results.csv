@@ -1,0 +1,801 @@
+index,Label,X,Y
+1,ALGERIA_Ahmeur Bou Ahmeur_2_overlay.png,227,124
+2,ALGERIA_Ahmeur Bou Ahmeur_2_overlay.png,234.5,503.5
+3,ALGERIA_Ahmeur Bou Ahmeur_31_overlay.png,244,102
+4,ALGERIA_Ahmeur Bou Ahmeur_31_overlay.png,269.5,504.5
+5,ALGERIA_Ahmeur Bou Ahmeur_33_overlay.png,247,173
+6,ALGERIA_Ahmeur Bou Ahmeur_33_overlay.png,205.5,506.5
+7,ALGERIA_Ahmeur Bou Ahmeur_40_overlay.png,273,118
+8,ALGERIA_Ahmeur Bou Ahmeur_40_overlay.png,215.5,507.5
+9,ALGERIA_Ahmeur Bou Ahmeur_49_overlay.png,258,129
+10,ALGERIA_Ahmeur Bou Ahmeur_49_overlay.png,278.5,509.5
+11,ALGERIA_Ahmeur Bou Ahmeur_4_overlay.png,259,117
+12,ALGERIA_Ahmeur Bou Ahmeur_4_overlay.png,263.5,503.5
+13,ALGERIA_Ahmeur Bou Ahmeur_61_overlay.png,256,141
+14,ALGERIA_Ahmeur Bou Ahmeur_61_overlay.png,237.5,509.5
+15,ALGERIA_Ahmeur Bou Ahmeur_62_overlay.png,241,141
+16,ALGERIA_Ahmeur Bou Ahmeur_62_overlay.png,272.5,509.5
+17,ALGERIA_Ahmeur Bou Ahmeur_71_overlay.png,252,117
+18,ALGERIA_Ahmeur Bou Ahmeur_71_overlay.png,263.5,509.5
+19,ALGERIA_Ahmeur Bou Ahmeur_7_overlay.png,272,117
+20,ALGERIA_Ahmeur Bou Ahmeur_7_overlay.png,215.5,505.5
+21,ALGERIA_Amer Bouamar_105_overlay.png,242,104
+22,ALGERIA_Amer Bouamar_105_overlay.png,195.5,508.5
+23,ALGERIA_Amer Bouamar_110_overlay.png,243,108
+24,ALGERIA_Amer Bouamar_110_overlay.png,308.5,508.5
+25,ALGERIA_Amer Bouamar_118_overlay.png,274,104
+26,ALGERIA_Amer Bouamar_118_overlay.png,263.5,507.5
+27,ALGERIA_Amer Bouamar_128_overlay.png,255,145
+28,ALGERIA_Amer Bouamar_128_overlay.png,241.5,493.5
+29,ALGERIA_Amer Bouamar_135_overlay.png,260,93
+30,ALGERIA_Amer Bouamar_135_overlay.png,256.5,506.5
+31,ALGERIA_Amer Bouamar_73_overlay.png,271,105
+32,ALGERIA_Amer Bouamar_73_overlay.png,263.5,509.5
+33,ALGERIA_Amer Bouamar_83_overlay.png,260,102
+34,ALGERIA_Amer Bouamar_83_overlay.png,202.5,506.5
+35,ALGERIA_Amer Bouamar_88_overlay.png,257,117
+36,ALGERIA_Amer Bouamar_88_overlay.png,181.5,506.5
+37,ALGERIA_Amer Bouamar_90_overlay.png,249,112
+38,ALGERIA_Amer Bouamar_90_overlay.png,257.5,507.5
+39,ALGERIA_Amer Bouamar_95_overlay.png,238,94
+40,ALGERIA_Amer Bouamar_95_overlay.png,245.5,503.5
+41,ALGERIA_Amer Bouamar_97_overlay.png,268,114
+42,ALGERIA_Amer Bouamar_97_overlay.png,207.5,506.5
+43,ALGERIA_Babari_136_overlay.png,276,158
+44,ALGERIA_Babari_136_overlay.png,261.5,507.5
+45,ALGERIA_Babari_137_overlay.png,256,112
+46,ALGERIA_Babari_137_overlay.png,272.5,497.5
+47,ALGERIA_Babari_139_overlay.png,245,153
+48,ALGERIA_Babari_139_overlay.png,245.5,500.5
+49,ALGERIA_Babari_143_overlay.png,236,149
+50,ALGERIA_Babari_143_overlay.png,239.5,506.5
+51,ALGERIA_Babari_144_overlay.png,251,123
+52,ALGERIA_Babari_144_overlay.png,257.5,492.5
+53,ALGERIA_Babari_145_overlay.png,244,126
+54,ALGERIA_Babari_145_overlay.png,239.5,506.5
+55,ALGERIA_Babari_156_overlay.png,242,164
+56,ALGERIA_Babari_156_overlay.png,227.5,502.5
+57,ALGERIA_Babari_157_overlay.png,238,153
+58,ALGERIA_Babari_157_overlay.png,238.5,509.5
+59,ALGERIA_Babari_158_overlay.png,271,152
+60,ALGERIA_Babari_158_overlay.png,261.5,506.5
+61,ALGERIA_Babari_166_overlay.png,280,175
+62,ALGERIA_Babari_166_overlay.png,240.5,495.5
+63,ALGERIA_Babari_168_overlay.png,245,145
+64,ALGERIA_Babari_168_overlay.png,291.5,490.5
+65,ALGERIA_Babari_172_overlay.png,253,156
+66,ALGERIA_Babari_172_overlay.png,146.5,441.5
+67,ALGERIA_Bouabane des Aures_176_overlay.png,255,159
+68,ALGERIA_Bouabane des Aures_176_overlay.png,249.5,506.5
+69,ALGERIA_Bouabane des Aures_180_overlay.png,250,129
+70,ALGERIA_Bouabane des Aures_180_overlay.png,245.5,507.5
+71,ALGERIA_Bouabane des Aures_181_overlay.png,265,132
+72,ALGERIA_Bouabane des Aures_181_overlay.png,294.5,509.5
+73,ALGERIA_Bouabane des Aures_182_overlay.png,256,145
+74,ALGERIA_Bouabane des Aures_182_overlay.png,189.5,508.5
+75,ALGERIA_Bouabane des Aures_185_overlay.png,257,159
+76,ALGERIA_Bouabane des Aures_185_overlay.png,266.5,504.5
+77,ALGERIA_Bouabane des Aures_187_overlay.png,267,168
+78,ALGERIA_Bouabane des Aures_187_overlay.png,188.5,508.5
+79,ALGERIA_Bouabane des Aures_203_overlay.png,256,146
+80,ALGERIA_Bouabane des Aures_203_overlay.png,245.5,506.5
+81,ALGERIA_Bouabane des Aures_213_overlay.png,255,145
+82,ALGERIA_Bouabane des Aures_213_overlay.png,246.5,509.5
+83,ALGERIA_Ichmoul_215_overlay.png,242,130
+84,ALGERIA_Ichmoul_215_overlay.png,246.5,504.5
+85,ALGERIA_Ichmoul_219_overlay.png,258,151
+86,ALGERIA_Ichmoul_219_overlay.png,278.5,475.5
+87,ALGERIA_Ichmoul_228_overlay.png,240,156
+88,ALGERIA_Ichmoul_228_overlay.png,221.5,502.5
+89,ALGERIA_Ichmoul_232_overlay.png,262,152
+90,ALGERIA_Ichmoul_232_overlay.png,236.5,485.5
+91,ALGERIA_Ichmoul_235_overlay.png,248,144
+92,ALGERIA_Ichmoul_235_overlay.png,262.5,480.5
+93,ALGERIA_Ichmoul_236_overlay.png,253,147
+94,ALGERIA_Ichmoul_236_overlay.png,268.5,480.5
+95,ALGERIA_Ichmoul_238_overlay.png,235,140
+96,ALGERIA_Ichmoul_238_overlay.png,219.5,484.5
+97,ALGERIA_Ichmoul_239_overlay.png,253,146
+98,ALGERIA_Ichmoul_239_overlay.png,235.5,492.5
+99,ALGERIA_Ichmoul_246_overlay.png,260,165
+100,ALGERIA_Ichmoul_246_overlay.png,237.5,492.5
+101,ALGERIA_Ichmoul_247_overlay.png,250,145
+102,ALGERIA_Ichmoul_247_overlay.png,258.5,477.5
+103,ALGERIA_Ichmoul_254_overlay.png,237,145
+104,ALGERIA_Ichmoul_254_overlay.png,212.5,506.5
+105,ALGERIA_Ichmoul_Bacha_273_overlay.png,248,170
+106,ALGERIA_Ichmoul_Bacha_273_overlay.png,253.5,499.5
+107,ALGERIA_Ichmoul_Bacha_275_overlay.png,244,135
+108,ALGERIA_Ichmoul_Bacha_275_overlay.png,236.5,506.5
+109,ALGERIA_Ichmoul_Bacha_277_overlay.png,263,188
+110,ALGERIA_Ichmoul_Bacha_277_overlay.png,346.5,481.5
+111,ALGERIA_Ichmoul_Bacha_279_overlay.png,247,147
+112,ALGERIA_Ichmoul_Bacha_279_overlay.png,258.5,499.5
+113,ALGERIA_Ichmoul_Bacha_283_overlay.png,261,128
+114,ALGERIA_Ichmoul_Bacha_283_overlay.png,263.5,507.5
+115,ALGERIA_Ichmoul_Bacha_284_overlay.png,262,168
+116,ALGERIA_Ichmoul_Bacha_284_overlay.png,267.5,500.5
+117,ALGERIA_Ichmoul_Bacha_287_overlay.png,267,168
+118,ALGERIA_Ichmoul_Bacha_287_overlay.png,234.5,487.5
+119,ALGERIA_Ichmoul_Bacha_290_overlay.png,252,138
+120,ALGERIA_Ichmoul_Bacha_290_overlay.png,274.5,506.5
+121,ALGERIA_Louali_301_overlay.png,246,119
+122,ALGERIA_Louali_301_overlay.png,237.5,507.5
+123,ALGERIA_Louali_305_overlay.png,239,129
+124,ALGERIA_Louali_305_overlay.png,254.5,506.5
+125,ALGERIA_Louali_316_overlay.png,257,135
+126,ALGERIA_Louali_316_overlay.png,234.5,508.5
+127,ALGERIA_Louali_325_overlay.png,262,131
+128,ALGERIA_Louali_325_overlay.png,255.5,506.5
+129,ALGERIA_Louali_335_overlay.png,248,122
+130,ALGERIA_Louali_335_overlay.png,261.5,505.5
+131,ALGERIA_Louali_341_overlay.png,269,143
+132,ALGERIA_Louali_341_overlay.png,303.5,507.5
+133,ALGERIA_Louali_347_overlay.png,254,149
+134,ALGERIA_Louali_347_overlay.png,170.5,488.5
+135,ALGERIA_Louali_350_overlay.png,257,152
+136,ALGERIA_Louali_350_overlay.png,237.5,508.5
+137,ALGERIA_Louali_351_overlay.png,245,108
+138,ALGERIA_Louali_351_overlay.png,266.5,506.5
+139,ALGERIA_Louali_353_overlay.png,251,126
+140,ALGERIA_Louali_353_overlay.png,261.5,504.5
+141,ALGERIA_Louali_356_overlay.png,255,128
+142,ALGERIA_Louali_356_overlay.png,278.5,502.5
+143,ALGERIA_Louali_362_overlay.png,268,129
+144,ALGERIA_Louali_362_overlay.png,285.5,505.5
+145,ALGERIA_Louali_364_overlay.png,261,115
+146,ALGERIA_Louali_364_overlay.png,224.5,505.5
+147,ALGERIA_Louali_367_overlay.png,243,127
+148,ALGERIA_Louali_367_overlay.png,252.5,507.5
+149,ALGERIA_Louali_372_overlay.png,266,133
+150,ALGERIA_Louali_372_overlay.png,177.5,498.5
+151,ALGERIA_Tizi Ouinine_376_overlay.png,248,140
+152,ALGERIA_Tizi Ouinine_376_overlay.png,255.5,501.5
+153,ALGERIA_Tizi Ouinine_386_overlay.png,267,146
+154,ALGERIA_Tizi Ouinine_386_overlay.png,282.5,507.5
+155,ALGERIA_Tizi Ouinine_387_overlay.png,243,137
+156,ALGERIA_Tizi Ouinine_387_overlay.png,205.5,503.5
+157,ALGERIA_Tizi Ouinine_388_overlay.png,247,140
+158,ALGERIA_Tizi Ouinine_388_overlay.png,283.5,492.5
+159,ALGERIA_Tizi Ouinine_389_overlay.png,248,156
+160,ALGERIA_Tizi Ouinine_389_overlay.png,314.5,485.5
+161,ALGERIA_Tizi Ouinine_392_overlay.png,240,147
+162,ALGERIA_Tizi Ouinine_392_overlay.png,290.5,495.5
+163,ALGERIA_Tizi Ouinine_396_overlay.png,258,142
+164,ALGERIA_Tizi Ouinine_396_overlay.png,240.5,502.5
+165,ALGERIA_Tizi Ouinine_398_overlay.png,246,159
+166,ALGERIA_Tizi Ouinine_398_overlay.png,293.5,507.5
+167,ALGERIA_Tizi Ouinine_409_overlay.png,251,115
+168,ALGERIA_Tizi Ouinine_409_overlay.png,300.5,504.5
+169,ALGERIA_Tizi Ouinine_410_overlay.png,297,198
+170,ALGERIA_Tizi Ouinine_410_overlay.png,291.5,462.5
+171,ALGERIA_Tizi Ouinine_413_overlay.png,251,147
+172,ALGERIA_Tizi Ouinine_413_overlay.png,332.5,496.5
+173,ALGERIA_Tizi Ouinine_415_overlay.png,254,156
+174,ALGERIA_Tizi Ouinine_415_overlay.png,267.5,503.5
+175,ALGERIA_Tizi Ouinine_422_overlay.png,263,139
+176,ALGERIA_Tizi Ouinine_422_overlay.png,279.5,494.5
+177,ALGERIA_Tizi Ouinine_425_overlay.png,248,145
+178,ALGERIA_Tizi Ouinine_425_overlay.png,219.5,490.5
+179,ALGERIA_Tizi Ouinine_426_overlay.png,252,110
+180,ALGERIA_Tizi Ouinine_426_overlay.png,279.5,506.5
+181,ALGERIA_Tizi Ouinine_430_overlay.png,254,122
+182,ALGERIA_Tizi Ouinine_430_overlay.png,249.5,505.5
+183,ALGERIA_Tizi Ouinine_431_overlay.png,253,137
+184,ALGERIA_Tizi Ouinine_431_overlay.png,270.5,498.5
+185,ALGERIA_Tizi Ouinine_434_overlay.png,273,151
+186,ALGERIA_Tizi Ouinine_434_overlay.png,280.5,493.5
+187,ALGERIA_Tizi Ouinine_435_overlay.png,265,127
+188,ALGERIA_Tizi Ouinine_435_overlay.png,268.5,499.5
+189,ALGERIA_Tizi Ouinine_443_overlay.png,236,114
+190,ALGERIA_Tizi Ouinine_443_overlay.png,299.5,506.5
+191,UCDAVIS_1103P_42_overlay.png,274,424
+192,UCDAVIS_1103P_42_overlay.png,297.5,19.5
+193,UCDAVIS_110R_863_overlay.png,262,132
+194,UCDAVIS_110R_863_overlay.png,255.5,465.5
+195,UCDAVIS_110R_886_overlay.png,266,158
+196,UCDAVIS_110R_886_overlay.png,286.5,505.5
+197,UCDAVIS_1613C_58_overlay.png,257,330
+198,UCDAVIS_1613C_58_overlay.png,264.5,9.5
+199,UCDAVIS_1616C_480_overlay.png,250,470
+200,UCDAVIS_1616C_480_overlay.png,202.5,4.5
+201,UCDAVIS_1616C_662_overlay.png,265,480
+202,UCDAVIS_1616C_662_overlay.png,275.5,4.5
+203,UCDAVIS_3309C_513_overlay.png,244,384
+204,UCDAVIS_3309C_513_overlay.png,208.5,5.5
+205,UCDAVIS_44-53M_193_overlay.png,421,255
+206,UCDAVIS_44-53M_193_overlay.png,8.5,246.5
+207,UCDAVIS_44-53M_378_overlay.png,392,250
+208,UCDAVIS_44-53M_378_overlay.png,7.5,262.5
+209,UCDAVIS_5BB_176_overlay.png,232,398
+210,UCDAVIS_5BB_176_overlay.png,249.5,8.5
+211,UCDAVIS_5BB_415_overlay.png,211,382
+212,UCDAVIS_5BB_415_overlay.png,296.5,4.5
+213,UCDAVIS_5BB_86_overlay.png,249,387
+214,UCDAVIS_5BB_86_overlay.png,237.5,3.5
+215,UCDAVIS_5C_14_overlay.png,226,382
+216,UCDAVIS_5C_14_overlay.png,248.5,6.5
+217,UCDAVIS_5C_446_overlay.png,286,373
+218,UCDAVIS_5C_446_overlay.png,296.5,2.5
+219,UCDAVIS_5C_625_overlay.png,248,399
+220,UCDAVIS_5C_625_overlay.png,216.5,6.5
+221,UCDAVIS_8B_266_overlay.png,413,255
+222,UCDAVIS_8B_266_overlay.png,5.5,316.5
+223,UCDAVIS_8B_315_overlay.png,408,233
+224,UCDAVIS_8B_315_overlay.png,11.5,243.5
+225,UCDAVIS_AGLICANICO_472_overlay.png,246,149
+226,UCDAVIS_AGLICANICO_472_overlay.png,228.5,498.5
+227,UCDAVIS_AGLICANICO_655_overlay.png,254,145
+228,UCDAVIS_AGLICANICO_655_overlay.png,195.5,506.5
+229,UCDAVIS_AIREN_843_overlay.png,253,375
+230,UCDAVIS_AIREN_843_overlay.png,250.5,7.5
+231,UCDAVIS_AIREN_916_overlay.png,264,371
+232,UCDAVIS_AIREN_916_overlay.png,272.5,5.5
+233,UCDAVIS_ALICANTE_BOUSCHET_107_overlay.png,272,328
+234,UCDAVIS_ALICANTE_BOUSCHET_107_overlay.png,185.5,35.5
+235,UCDAVIS_ALICANTE_BOUSCHET_49_overlay.png,350,268
+236,UCDAVIS_ALICANTE_BOUSCHET_49_overlay.png,31.5,229.5
+237,UCDAVIS_AXR1_453_overlay.png,237,128
+238,UCDAVIS_AXR1_453_overlay.png,194.5,469.5
+239,UCDAVIS_AXR1_595_overlay.png,277,130
+240,UCDAVIS_AXR1_595_overlay.png,334.5,456.5
+241,UCDAVIS_BARBERA_201_overlay.png,257,377
+242,UCDAVIS_BARBERA_201_overlay.png,282.5,17.5
+243,UCDAVIS_BONARDA_146_overlay.png,258,382
+244,UCDAVIS_BONARDA_146_overlay.png,208.5,1.5
+245,UCDAVIS_BONARDA_281_overlay.png,266,385
+246,UCDAVIS_BONARDA_281_overlay.png,214.5,5.5
+247,UCDAVIS_CABERNET_FRANC_348_overlay.png,239,183
+248,UCDAVIS_CABERNET_FRANC_348_overlay.png,266.5,505.5
+249,UCDAVIS_CARIGNANE_385_overlay.png,268,337
+250,UCDAVIS_CARIGNANE_385_overlay.png,148.5,18.5
+251,UCDAVIS_CARIGNANE_544_overlay.png,194,317
+252,UCDAVIS_CARIGNANE_544_overlay.png,236.5,13.5
+253,UCDAVIS_CHARDONNAY_747_overlay.png,266,378
+254,UCDAVIS_CHARDONNAY_747_overlay.png,250.5,4.5
+255,UCDAVIS_CILIEGIOLO_123_overlay.png,273,401
+256,UCDAVIS_CILIEGIOLO_123_overlay.png,217.5,10.5
+257,UCDAVIS_CILIEGIOLO_7_overlay.png,263,402
+258,UCDAVIS_CILIEGIOLO_7_overlay.png,289.5,8.5
+259,UCDAVIS_CINSAULT_401_overlay.png,265,349
+260,UCDAVIS_CINSAULT_401_overlay.png,142.5,32.5
+261,UCDAVIS_CINSAULT_527_overlay.png,288,353
+262,UCDAVIS_CINSAULT_527_overlay.png,239.5,4.5
+263,UCDAVIS_CORVINA_VERONSE_804_overlay.png,269,143
+264,UCDAVIS_CORVINA_VERONSE_804_overlay.png,309.5,503.5
+265,UCDAVIS_COUNOISE_732_overlay.png,246,326
+266,UCDAVIS_COUNOISE_732_overlay.png,332.5,16.5
+267,UCDAVIS_DOG_RIDGE_114_overlay.png,247,371
+268,UCDAVIS_DOG_RIDGE_114_overlay.png,346.5,8.5
+269,UCDAVIS_DOG_RIDGE_208_overlay.png,256,392
+270,UCDAVIS_DOG_RIDGE_208_overlay.png,293.5,6.5
+271,UCDAVIS_DOG_RIDGE_394_overlay.png,249,140
+272,UCDAVIS_DOG_RIDGE_394_overlay.png,285.5,498.5
+273,UCDAVIS_DOG_RIDGE_499_overlay.png,266,118
+274,UCDAVIS_DOG_RIDGE_499_overlay.png,288.5,503.5
+275,UCDAVIS_DOG_RIDGE_66_overlay.png,268,366
+276,UCDAVIS_DOG_RIDGE_66_overlay.png,241.5,8.5
+277,UCDAVIS_DOLCETTO_669_overlay.png,261,358
+278,UCDAVIS_DOLCETTO_669_overlay.png,223.5,3.5
+279,UCDAVIS_DOLCETTO_794_overlay.png,248,360
+280,UCDAVIS_DOLCETTO_794_overlay.png,320.5,5.5
+281,UCDAVIS_EARLY_MUSCAT_583_overlay.png,234,109
+282,UCDAVIS_EARLY_MUSCAT_583_overlay.png,194.5,491.5
+283,UCDAVIS_EARLY_MUSCAT_619_overlay.png,250,109
+284,UCDAVIS_EARLY_MUSCAT_619_overlay.png,237.5,504.5
+285,UCDAVIS_EMERALD_REISLING_778_overlay.png,286,390
+286,UCDAVIS_EMERALD_REISLING_778_overlay.png,242.5,9.5
+287,UCDAVIS_EMERALD_REISLING_910_overlay.png,244,368
+288,UCDAVIS_EMERALD_REISLING_910_overlay.png,257.5,20.5
+289,UCDAVIS_EMERALD_RIESLING_355_overlay.png,245,364
+290,UCDAVIS_EMERALD_RIESLING_355_overlay.png,256.5,20.5
+291,UCDAVIS_FOLLE_BLANCE_162_overlay.png,252,359
+292,UCDAVIS_FOLLE_BLANCE_162_overlay.png,259.5,6.5
+293,UCDAVIS_FOLLE_BLANCE_364_overlay.png,259.5,351.5
+294,UCDAVIS_FOLLE_BLANCE_364_overlay.png,271.5,3.5
+295,UCDAVIS_FURMINT_520_overlay.png,255,339
+296,UCDAVIS_FURMINT_520_overlay.png,197.5,5.5
+297,UCDAVIS_FURMINT_811_overlay.png,263,348
+298,UCDAVIS_FURMINT_811_overlay.png,183.5,34.5
+299,UCDAVIS_GRENACHE_NOIR_759_overlay.png,275,124
+300,UCDAVIS_GRENACHE_NOIR_759_overlay.png,308.5,508.5
+301,UCDAVIS_GRN_3_487_overlay.png,212,364
+302,UCDAVIS_GRN_3_487_overlay.png,291.5,4.5
+303,UCDAVIS_GRN_3_641_overlay.png,257,406
+304,UCDAVIS_GRN_3_641_overlay.png,203.5,4.5
+305,UCDAVIS_MALVASIA_BIANCA_216_overlay.png,172,252
+306,UCDAVIS_MALVASIA_BIANCA_216_overlay.png,491.5,243.5
+307,UCDAVIS_MARSANNE_328_overlay.png,342,281
+308,UCDAVIS_MARSANNE_328_overlay.png,8.5,273.5
+309,UCDAVIS_MONDEUSE_437_overlay.png,243,392
+310,UCDAVIS_MONDEUSE_437_overlay.png,283.5,6.5
+311,UCDAVIS_MONDEUSE_603_overlay.png,264,368
+312,UCDAVIS_MONDEUSE_603_overlay.png,264.5,4.5
+313,UCDAVIS_MUSCAT_OTTONEL_238_overlay.png,269,367
+314,UCDAVIS_MUSCAT_OTTONEL_238_overlay.png,293.5,1.5
+315,UCDAVIS_MUSCAT_OTTONEL_35_overlay.png,268,357
+316,UCDAVIS_MUSCAT_OTTONEL_35_overlay.png,266.5,4.5
+317,UCDAVIS_NERO_DAVOLA_832_overlay.png,244,170
+318,UCDAVIS_NERO_DAVOLA_832_overlay.png,256.5,505.5
+319,UCDAVIS_O39_16_566_overlay.png,282,373
+320,UCDAVIS_O39_16_566_overlay.png,223.5,4.5
+321,UCDAVIS_PARELLADA_169_overlay.png,336,290
+322,UCDAVIS_PARELLADA_169_overlay.png,14.5,301.5
+323,UCDAVIS_PARELLADA_371_overlay.png,330,275
+324,UCDAVIS_PARELLADA_371_overlay.png,43.5,265.5
+325,UCDAVIS_PETIT_VERDOT_291_overlay.png,255,368
+326,UCDAVIS_PETIT_VERDOT_291_overlay.png,204.5,7.5
+327,UCDAVIS_PINOTAGE_724_overlay.png,250,371
+328,UCDAVIS_PINOTAGE_724_overlay.png,248.5,2.5
+329,UCDAVIS_PINOTAGE_878_overlay.png,236,383
+330,UCDAVIS_PINOTAGE_878_overlay.png,227.5,3.5
+331,UCDAVIS_RAMSEY_250_overlay.png,242,396
+332,UCDAVIS_RAMSEY_250_overlay.png,176.5,4.5
+333,UCDAVIS_RAMSEY_308_overlay.png,261,375
+334,UCDAVIS_RAMSEY_308_overlay.png,167.5,3.5
+335,UCDAVIS_RIPARIA_GLOIRE_258_overlay.png,399,292
+336,UCDAVIS_RIPARIA_GLOIRE_258_overlay.png,4.5,178.5
+337,UCDAVIS_RIPARIA_GLOIRE_300_overlay.png,358,276
+338,UCDAVIS_RIPARIA_GLOIRE_300_overlay.png,9.5,161.5
+339,UCDAVIS_RS-9_224_overlay.png,269,407
+340,UCDAVIS_RS-9_224_overlay.png,276.5,7.5
+341,UCDAVIS_RS_3_790_overlay.png,252,372
+342,UCDAVIS_RS_3_790_overlay.png,218.5,38.5
+343,UCDAVIS_RS_3_890_overlay.png,251,367
+344,UCDAVIS_RS_3_890_overlay.png,158.5,19.5
+345,UCDAVIS_SIEGERREBE_335_overlay.png,253,339
+346,UCDAVIS_SIEGERREBE_335_overlay.png,240.5,23.5
+347,UCDAVIS_SYLVANER_321_overlay.png,257,356
+348,UCDAVIS_SYLVANER_321_overlay.png,227.5,8.5
+349,UCDAVIS_SYRAH_678_overlay.png,217,330
+350,UCDAVIS_SYRAH_678_overlay.png,441.5,79.5
+351,UCDAVIS_SYRAH_839_overlay.png,231,390
+352,UCDAVIS_SYRAH_839_overlay.png,243.5,6.5
+353,UCDAVIS_TEROLDEGO_705_overlay.png,268,346
+354,UCDAVIS_TEROLDEGO_705_overlay.png,306.5,53.5
+355,UCDAVIS_TEROLDEGO_798_overlay.png,241,361
+356,UCDAVIS_TEROLDEGO_798_overlay.png,239.5,5.5
+357,UCDAVIS_THOMPSON_SEEDLESS_408_overlay.png,195,335
+358,UCDAVIS_THOMPSON_SEEDLESS_408_overlay.png,361.5,85.5
+359,UCDAVIS_THOMPSON_SEEDLESS_573_overlay.png,280,349
+360,UCDAVIS_THOMPSON_SEEDLESS_573_overlay.png,290.5,21.5
+361,UCDAVIS_TOURIGA_NACIONAL_786_overlay.png,181,275
+362,UCDAVIS_TOURIGA_NACIONAL_786_overlay.png,430.5,49.5
+363,UCDAVIS_TOURIGA_NACIONAL_896_overlay.png,259,353
+364,UCDAVIS_TOURIGA_NACIONAL_896_overlay.png,252.5,8.5
+365,UCDAVIS_TREBBIANO_231_overlay.png,255,361
+366,UCDAVIS_TREBBIANO_231_overlay.png,269.5,23.5
+367,UCDAVIS_V._ACERTIFOLIA_637_overlay.png,288,360
+368,UCDAVIS_V._ACERTIFOLIA_637_overlay.png,137.5,2.5
+369,UCDAVIS_V._DOANIANA_825_overlay.png,248,417
+370,UCDAVIS_V._DOANIANA_825_overlay.png,232.5,5.5
+371,UCDAVIS_V._DOANIANA_904_overlay.png,246,399
+372,UCDAVIS_V._DOANIANA_904_overlay.png,205.5,6.5
+373,UCDAVIS_V._GIRIDIANA_537_overlay.png,257,401
+374,UCDAVIS_V._GIRIDIANA_537_overlay.png,281.5,5.5
+375,UCDAVIS_V._GIRIDIANA_648_overlay.png,263,386
+376,UCDAVIS_V._GIRIDIANA_648_overlay.png,294.5,8.5
+377,UCDAVIS_VERDELHO_701_overlay.png,250,361
+378,UCDAVIS_VERDELHO_701_overlay.png,241.5,9.5
+379,UCDAVIS_VERDELHO_815_overlay.png,258,375
+380,UCDAVIS_VERDELHO_815_overlay.png,320.5,5.5
+381,UCDAVIS_VESPOLINA_28_overlay.png,269,124
+382,UCDAVIS_VESPOLINA_28_overlay.png,231.5,495.5
+383,UCDAVIS_VIOGNIER_429_overlay.png,234,359
+384,UCDAVIS_VIOGNIER_429_overlay.png,285.5,3.5
+385,UCDAVIS_VIOGNIER_728_overlay.png,277,366
+386,UCDAVIS_VIOGNIER_728_overlay.png,207.5,9.5
+387,UCDAVIS_VITIS_ARIZONICA_273_overlay.png,245,440
+388,UCDAVIS_VITIS_ARIZONICA_273_overlay.png,237.5,7.5
+389,UCDAVIS_VITIS_ROMANETII_743_overlay.png,249,406
+390,UCDAVIS_VITIS_ROMANETII_743_overlay.png,228.5,7.5
+391,VINEYARDS_1103P_cab_merced_y2018_2357_overlay.png,336,269
+392,VINEYARDS_1103P_cab_merced_y2018_2357_overlay.png,4.5,306.5
+393,VINEYARDS_1103P_cab_merced_y2018_2358_overlay.png,336.5,233.5
+394,VINEYARDS_1103P_cab_merced_y2018_2358_overlay.png,3.5,201.5
+395,VINEYARDS_1103P_cab_merced_y2018_2985_overlay.png,324,244
+396,VINEYARDS_1103P_cab_merced_y2018_2985_overlay.png,16.5,282.5
+397,VINEYARDS_1103P_cab_merced_y2018_3403_overlay.png,338.5,257.5
+398,VINEYARDS_1103P_cab_merced_y2018_3403_overlay.png,11.5,315.5
+399,VINEYARDS_1103P_cab_merced_y2018_3412_overlay.png,348,234
+400,VINEYARDS_1103P_cab_merced_y2018_3412_overlay.png,4.5,231.5
+401,VINEYARDS_1103P_cab_merced_y2018_3825_overlay.png,346,242
+402,VINEYARDS_1103P_cab_merced_y2018_3825_overlay.png,5.5,255.5
+403,VINEYARDS_1103P_cab_merced_y2019_1611_overlay.png,352,235
+404,VINEYARDS_1103P_cab_merced_y2019_1611_overlay.png,1.5,256.5
+405,VINEYARDS_1103P_cab_merced_y2019_2096_overlay.png,352,263
+406,VINEYARDS_1103P_cab_merced_y2019_2096_overlay.png,2.5,277.5
+407,VINEYARDS_1103P_cab_merced_y2019_2097_overlay.png,353,234
+408,VINEYARDS_1103P_cab_merced_y2019_2097_overlay.png,4.5,217.5
+409,VINEYARDS_1103P_cab_merced_y2019_398_overlay.png,345,252
+410,VINEYARDS_1103P_cab_merced_y2019_398_overlay.png,2.5,154.5
+411,VINEYARDS_1103P_cab_merced_y2019_570_overlay.png,301,301
+412,VINEYARDS_1103P_cab_merced_y2019_570_overlay.png,6.5,144.5
+413,VINEYARDS_1103P_cab_merced_y2019_65_overlay.png,345,268
+414,VINEYARDS_1103P_cab_merced_y2019_65_overlay.png,5.5,212.5
+415,VINEYARDS_1103P_cab_san_joaquin_y2018_3217_overlay.png,343,252
+416,VINEYARDS_1103P_cab_san_joaquin_y2018_3217_overlay.png,13.5,247.5
+417,VINEYARDS_1103P_cab_san_joaquin_y2018_4352_overlay.png,335,280
+418,VINEYARDS_1103P_cab_san_joaquin_y2018_4352_overlay.png,8.5,303.5
+419,VINEYARDS_1103P_cab_san_joaquin_y2018_4616_overlay.png,340,238
+420,VINEYARDS_1103P_cab_san_joaquin_y2018_4616_overlay.png,1.5,197.5
+421,VINEYARDS_1103P_cab_san_joaquin_y2018_4871_overlay.png,346,250
+422,VINEYARDS_1103P_cab_san_joaquin_y2018_4871_overlay.png,17.5,390.5
+423,VINEYARDS_1103P_cab_san_joaquin_y2019_1012_overlay.png,270,159
+424,VINEYARDS_1103P_cab_san_joaquin_y2019_1012_overlay.png,217.5,507.5
+425,VINEYARDS_1103P_cab_san_joaquin_y2019_1074_overlay.png,268,153
+426,VINEYARDS_1103P_cab_san_joaquin_y2019_1074_overlay.png,273.5,505.5
+427,VINEYARDS_1103P_cab_san_joaquin_y2019_1806_overlay.png,344,253
+428,VINEYARDS_1103P_cab_san_joaquin_y2019_1806_overlay.png,4.5,229.5
+429,VINEYARDS_1103P_cab_san_joaquin_y2019_1945_overlay.png,350,250
+430,VINEYARDS_1103P_cab_san_joaquin_y2019_1945_overlay.png,4.5,274.5
+431,VINEYARDS_1103P_chard_madera_y2018_3532_overlay.png,347,256
+432,VINEYARDS_1103P_chard_madera_y2018_3532_overlay.png,16.5,286.5
+433,VINEYARDS_1103P_chard_madera_y2018_3961_overlay.png,231,376
+434,VINEYARDS_1103P_chard_madera_y2018_3961_overlay.png,319.5,3.5
+435,VINEYARDS_1103P_chard_madera_y2018_4208_overlay.png,340,261
+436,VINEYARDS_1103P_chard_madera_y2018_4208_overlay.png,17.5,249.5
+437,VINEYARDS_1103P_chard_madera_y2018_4209_overlay.png,328,289
+438,VINEYARDS_1103P_chard_madera_y2018_4209_overlay.png,19.5,162.5
+439,VINEYARDS_1103P_chard_madera_y2019_1166_overlay.png,385,233
+440,VINEYARDS_1103P_chard_madera_y2019_1166_overlay.png,4.5,236.5
+441,VINEYARDS_1103P_chard_madera_y2019_1374_overlay.png,370,249
+442,VINEYARDS_1103P_chard_madera_y2019_1374_overlay.png,-0.5,202.5
+443,VINEYARDS_1103P_chard_madera_y2019_1711_overlay.png,364,251
+444,VINEYARDS_1103P_chard_madera_y2019_1711_overlay.png,5.5,215.5
+445,VINEYARDS_1103P_chard_madera_y2019_1730_overlay.png,360,253
+446,VINEYARDS_1103P_chard_madera_y2019_1730_overlay.png,2.5,186.5
+447,VINEYARDS_1103P_chard_madera_y2019_504_overlay.png,356,282
+448,VINEYARDS_1103P_chard_madera_y2019_504_overlay.png,4.5,265.5
+449,VINEYARDS_1103P_chard_madera_y2019_517_overlay.png,355,287
+450,VINEYARDS_1103P_chard_madera_y2019_517_overlay.png,1.5,227.5
+451,VINEYARDS_1103P_chard_san_joaquin_y2018_2499_overlay.png,363,268
+452,VINEYARDS_1103P_chard_san_joaquin_y2018_2499_overlay.png,2.5,257.5
+453,VINEYARDS_1103P_chard_san_joaquin_y2018_3641_overlay.png,341,257
+454,VINEYARDS_1103P_chard_san_joaquin_y2018_3641_overlay.png,9.5,266.5
+455,VINEYARDS_1103P_chard_san_joaquin_y2018_4709_overlay.png,383,265
+456,VINEYARDS_1103P_chard_san_joaquin_y2018_4709_overlay.png,5.5,237.5
+457,VINEYARDS_1103P_chard_san_joaquin_y2018_4825_overlay.png,326,269
+458,VINEYARDS_1103P_chard_san_joaquin_y2018_4825_overlay.png,24.5,277.5
+459,VINEYARDS_1103P_chard_san_joaquin_y2019_2242_overlay.png,337,268
+460,VINEYARDS_1103P_chard_san_joaquin_y2019_2242_overlay.png,35.5,194.5
+461,VINEYARDS_5C_cab_madera_y2018_2587_overlay.png,361,259
+462,VINEYARDS_5C_cab_madera_y2018_2587_overlay.png,7.5,286.5
+463,VINEYARDS_5C_cab_madera_y2018_3459_overlay.png,354,269
+464,VINEYARDS_5C_cab_madera_y2018_3459_overlay.png,2.5,191.5
+465,VINEYARDS_5C_cab_madera_y2018_4262_overlay.png,371,259
+466,VINEYARDS_5C_cab_madera_y2018_4262_overlay.png,6.5,302.5
+467,VINEYARDS_5C_cab_madera_y2019_1716_overlay.png,336,254
+468,VINEYARDS_5C_cab_madera_y2019_1716_overlay.png,6.5,159.5
+469,VINEYARDS_5C_cab_madera_y2019_1891_overlay.png,341,271
+470,VINEYARDS_5C_cab_madera_y2019_1891_overlay.png,4.5,318.5
+471,VINEYARDS_5C_cab_san_joaquin_y2018_2958_overlay.png,350,259
+472,VINEYARDS_5C_cab_san_joaquin_y2018_2958_overlay.png,0.5,239.5
+473,VINEYARDS_5C_cab_san_joaquin_y2018_3152_overlay.png,352,269
+474,VINEYARDS_5C_cab_san_joaquin_y2018_3152_overlay.png,7.5,280.5
+475,VINEYARDS_5C_cab_san_joaquin_y2018_3169_overlay.png,347,274
+476,VINEYARDS_5C_cab_san_joaquin_y2018_3169_overlay.png,2.5,303.5
+477,VINEYARDS_5C_cab_san_joaquin_y2018_4696_overlay.png,357,253
+478,VINEYARDS_5C_cab_san_joaquin_y2018_4696_overlay.png,2.5,281.5
+479,VINEYARDS_5C_cab_san_joaquin_y2018_4999_overlay.png,333,279
+480,VINEYARDS_5C_cab_san_joaquin_y2018_4999_overlay.png,21.5,169.5
+481,VINEYARDS_5C_cab_san_joaquin_y2018_5007_overlay.png,366,252
+482,VINEYARDS_5C_cab_san_joaquin_y2018_5007_overlay.png,5.5,321.5
+483,VINEYARDS_5C_cab_san_joaquin_y2019_1484_overlay.png,351,263
+484,VINEYARDS_5C_cab_san_joaquin_y2019_1484_overlay.png,14.5,323.5
+485,VINEYARDS_5C_cab_san_joaquin_y2019_927_overlay.png,265,161
+486,VINEYARDS_5C_cab_san_joaquin_y2019_927_overlay.png,199.5,491.5
+487,VINEYARDS_5C_cab_san_joaquin_y2019_941_overlay.png,234,158
+488,VINEYARDS_5C_cab_san_joaquin_y2019_941_overlay.png,257.5,493.5
+489,VINEYARDS_5C_chard_merced_y2018_2337_overlay.png,344,244
+490,VINEYARDS_5C_chard_merced_y2018_2337_overlay.png,4.5,245.5
+491,VINEYARDS_5C_chard_merced_y2018_3595_overlay.png,367,250
+492,VINEYARDS_5C_chard_merced_y2018_3595_overlay.png,3.5,213.5
+493,VINEYARDS_5C_chard_merced_y2018_3811_overlay.png,349,246
+494,VINEYARDS_5C_chard_merced_y2018_3811_overlay.png,9.5,279.5
+495,VINEYARDS_5C_chard_merced_y2019_1642_overlay.png,345,256
+496,VINEYARDS_5C_chard_merced_y2019_1642_overlay.png,2.5,256.5
+497,VINEYARDS_5C_chard_merced_y2019_2108_overlay.png,365,265
+498,VINEYARDS_5C_chard_merced_y2019_2108_overlay.png,2.5,282.5
+499,VINEYARDS_5C_chard_merced_y2019_377_overlay.png,372,259
+500,VINEYARDS_5C_chard_merced_y2019_377_overlay.png,1.5,225.5
+501,VINEYARDS_5C_chard_san_joaquin_y2018_2475_overlay.png,369,279
+502,VINEYARDS_5C_chard_san_joaquin_y2018_2475_overlay.png,9.5,296.5
+503,VINEYARDS_5C_chard_san_joaquin_y2018_3320_overlay.png,357,249
+504,VINEYARDS_5C_chard_san_joaquin_y2018_3320_overlay.png,13.5,242.5
+505,VINEYARDS_5C_chard_san_joaquin_y2018_3647_overlay.png,385,248
+506,VINEYARDS_5C_chard_san_joaquin_y2018_3647_overlay.png,5.5,145.5
+507,VINEYARDS_5C_chard_san_joaquin_y2018_3648_overlay.png,364,257
+508,VINEYARDS_5C_chard_san_joaquin_y2018_3648_overlay.png,5.5,240.5
+509,VINEYARDS_5C_chard_san_joaquin_y2018_4610_overlay.png,351,249
+510,VINEYARDS_5C_chard_san_joaquin_y2018_4610_overlay.png,3.5,229.5
+511,VINEYARDS_freedom_cab_madera_y2018_2809_overlay.png,353,249
+512,VINEYARDS_freedom_cab_madera_y2018_2809_overlay.png,2.5,249.5
+513,VINEYARDS_freedom_cab_madera_y2018_3929_overlay.png,349,246
+514,VINEYARDS_freedom_cab_madera_y2018_3929_overlay.png,3.5,229.5
+515,VINEYARDS_freedom_cab_madera_y2019_1127_overlay.png,341,275
+516,VINEYARDS_freedom_cab_madera_y2019_1127_overlay.png,0.5,303.5
+517,VINEYARDS_freedom_cab_madera_y2019_434_overlay.png,331,266
+518,VINEYARDS_freedom_cab_madera_y2019_434_overlay.png,3.5,241.5
+519,VINEYARDS_freedom_cab_madera_y2019_512_overlay.png,368,241
+520,VINEYARDS_freedom_cab_madera_y2019_512_overlay.png,7.5,232.5
+521,VINEYARDS_freedom_cab_merced_y2018_3034_overlay.png,350,251
+522,VINEYARDS_freedom_cab_merced_y2018_3034_overlay.png,5.5,270.5
+523,VINEYARDS_freedom_cab_merced_y2018_3399_overlay.png,350,248
+524,VINEYARDS_freedom_cab_merced_y2018_3399_overlay.png,23.5,252.5
+525,VINEYARDS_freedom_cab_merced_y2018_5061_overlay.png,251,348
+526,VINEYARDS_freedom_cab_merced_y2018_5061_overlay.png,258.5,1.5
+527,VINEYARDS_freedom_cab_merced_y2019_352_overlay.png,318,302
+528,VINEYARDS_freedom_cab_merced_y2019_352_overlay.png,3.5,207.5
+529,VINEYARDS_freedom_cab_merced_y2019_578_overlay.png,362,250
+530,VINEYARDS_freedom_cab_merced_y2019_578_overlay.png,2.5,284.5
+531,VINEYARDS_freedom_cab_san_joaquin_y2018_2450_overlay.png,340,244
+532,VINEYARDS_freedom_cab_san_joaquin_y2018_2450_overlay.png,2.5,255.5
+533,VINEYARDS_freedom_cab_san_joaquin_y2018_2905_overlay.png,352,263
+534,VINEYARDS_freedom_cab_san_joaquin_y2018_2905_overlay.png,6.5,267.5
+535,VINEYARDS_freedom_cab_san_joaquin_y2018_3147_overlay.png,344,260
+536,VINEYARDS_freedom_cab_san_joaquin_y2018_3147_overlay.png,11.5,284.5
+537,VINEYARDS_freedom_cab_san_joaquin_y2018_3267_overlay.png,335,238
+538,VINEYARDS_freedom_cab_san_joaquin_y2018_3267_overlay.png,4.5,222.5
+539,VINEYARDS_freedom_cab_san_joaquin_y2019_1471_overlay.png,358,264
+540,VINEYARDS_freedom_cab_san_joaquin_y2019_1471_overlay.png,2.5,216.5
+541,VINEYARDS_freedom_cab_san_joaquin_y2019_2017_overlay.png,364,262
+542,VINEYARDS_freedom_cab_san_joaquin_y2019_2017_overlay.png,7.5,298.5
+543,VINEYARDS_freedom_chard_madera_y2018_2571_overlay.png,353,240
+544,VINEYARDS_freedom_chard_madera_y2018_2571_overlay.png,1.5,187.5
+545,VINEYARDS_freedom_chard_madera_y2018_4177_overlay.png,370,259
+546,VINEYARDS_freedom_chard_madera_y2018_4177_overlay.png,11.5,239.5
+547,VINEYARDS_freedom_chard_madera_y2019_1134_overlay.png,355,250
+548,VINEYARDS_freedom_chard_madera_y2019_1134_overlay.png,15.5,293.5
+549,VINEYARDS_freedom_chard_madera_y2019_1141_overlay.png,388,248
+550,VINEYARDS_freedom_chard_madera_y2019_1141_overlay.png,5.5,283.5
+551,VINEYARDS_freedom_chard_madera_y2019_1693_overlay.png,350,265
+552,VINEYARDS_freedom_chard_madera_y2019_1693_overlay.png,17.5,193.5
+553,VINEYARDS_freedom_chard_madera_y2019_471_overlay.png,345,229
+554,VINEYARDS_freedom_chard_madera_y2019_471_overlay.png,1.5,252.5
+555,VINEYARDS_freedom_chard_merced_y2018_2368_overlay.png,378,235
+556,VINEYARDS_freedom_chard_merced_y2018_2368_overlay.png,8.5,227.5
+557,VINEYARDS_freedom_chard_merced_y2018_2684_overlay.png,244,366
+558,VINEYARDS_freedom_chard_merced_y2018_2684_overlay.png,193.5,7.5
+559,VINEYARDS_freedom_chard_merced_y2018_3049_overlay.png,345,269
+560,VINEYARDS_freedom_chard_merced_y2018_3049_overlay.png,30.5,181.5
+561,VINEYARDS_freedom_chard_merced_y2018_3377_overlay.png,382,281
+562,VINEYARDS_freedom_chard_merced_y2018_3377_overlay.png,20.5,314.5
+563,VINEYARDS_freedom_chard_merced_y2018_3778_overlay.png,361,250
+564,VINEYARDS_freedom_chard_merced_y2018_3778_overlay.png,5.5,241.5
+565,VINEYARDS_freedom_chard_merced_y2018_3787_overlay.png,399,242
+566,VINEYARDS_freedom_chard_merced_y2018_3787_overlay.png,3.5,233.5
+567,VINEYARDS_freedom_chard_merced_y2018_5079_overlay.png,260,344
+568,VINEYARDS_freedom_chard_merced_y2018_5079_overlay.png,269.5,31.5
+569,VINEYARDS_freedom_chard_merced_y2018_5086_overlay.png,265,359
+570,VINEYARDS_freedom_chard_merced_y2018_5086_overlay.png,266.5,4.5
+571,VINEYARDS_freedom_chard_merced_y2019_1604_overlay.png,369,254
+572,VINEYARDS_freedom_chard_merced_y2019_1604_overlay.png,10.5,199.5
+573,VINEYARDS_freedom_chard_merced_y2019_2074_overlay.png,363,239
+574,VINEYARDS_freedom_chard_merced_y2019_2074_overlay.png,10.5,289.5
+575,VINEYARDS_freedom_chard_san_joaquin_y2018_2482_overlay.png,371,279
+576,VINEYARDS_freedom_chard_san_joaquin_y2018_2482_overlay.png,1.5,277.5
+577,VINEYARDS_freedom_chard_san_joaquin_y2018_4428_overlay.png,367,254
+578,VINEYARDS_freedom_chard_san_joaquin_y2018_4428_overlay.png,3.5,239.5
+579,VINEYARDS_freedom_chard_san_joaquin_y2018_4482_overlay.png,343,235
+580,VINEYARDS_freedom_chard_san_joaquin_y2018_4482_overlay.png,6.5,248.5
+581,VINEYARDS_freedom_chard_san_joaquin_y2018_4622_overlay.png,352,251
+582,VINEYARDS_freedom_chard_san_joaquin_y2018_4622_overlay.png,25.5,214.5
+583,VINEYARDS_freedom_chard_san_joaquin_y2018_4836_overlay.png,327,275
+584,VINEYARDS_freedom_chard_san_joaquin_y2018_4836_overlay.png,9.5,255.5
+585,VINEYARDS_freedom_chard_san_joaquin_y2019_1411_overlay.png,347,285
+586,VINEYARDS_freedom_chard_san_joaquin_y2019_1411_overlay.png,18.5,125.5
+587,VINEYARDS_freedom_chard_san_joaquin_y2019_1844_overlay.png,363,252
+588,VINEYARDS_freedom_chard_san_joaquin_y2019_1844_overlay.png,7.5,197.5
+589,VINEYARDS_freedom_chard_san_joaquin_y2019_2051_overlay.png,373,247
+590,VINEYARDS_freedom_chard_san_joaquin_y2019_2051_overlay.png,6.5,196.5
+591,WOLFSKILL_5-17_3847_overlay.png,191,319
+592,WOLFSKILL_5-17_3847_overlay.png,427.5,55.5
+593,WOLFSKILL_Abla_Aganin_Isium_728_overlay.png,259,182
+594,WOLFSKILL_Abla_Aganin_Isium_728_overlay.png,386.5,505.5
+595,WOLFSKILL_Abla_Aganin_Isium_841_overlay.png,208,171
+596,WOLFSKILL_Abla_Aganin_Isium_841_overlay.png,332.5,504.5
+597,WOLFSKILL_Al_Borla_736_overlay.png,292,160
+598,WOLFSKILL_Al_Borla_736_overlay.png,195.5,505.5
+599,WOLFSKILL_Appley_Towers_33_overlay.png,258,168
+600,WOLFSKILL_Appley_Towers_33_overlay.png,289.5,503.5
+601,WOLFSKILL_Aramon_5304_overlay.png,267,384
+602,WOLFSKILL_Aramon_5304_overlay.png,271.5,3.5
+603,WOLFSKILL_Argant_4994_overlay.png,380,290
+604,WOLFSKILL_Argant_4994_overlay.png,3.5,288.5
+605,WOLFSKILL_Arhaniotico_Kokino_5319_overlay.png,260,160
+606,WOLFSKILL_Arhaniotico_Kokino_5319_overlay.png,346.5,505.5
+607,WOLFSKILL_Arnsburger_8959_overlay.png,266,148
+608,WOLFSKILL_Arnsburger_8959_overlay.png,284.5,503.5
+609,WOLFSKILL_Askari_2670_overlay.png,270,96
+610,WOLFSKILL_Askari_2670_overlay.png,294.5,507.5
+611,WOLFSKILL_Asma_202_overlay.png,251,360
+612,WOLFSKILL_Asma_202_overlay.png,234.5,2.5
+613,WOLFSKILL_Asma_Sohwars_759_overlay.png,249,152
+614,WOLFSKILL_Asma_Sohwars_759_overlay.png,278.5,507.5
+615,WOLFSKILL_Asprocoritho_8396_overlay.png,217,299
+616,WOLFSKILL_Asprocoritho_8396_overlay.png,485.5,123.5
+617,WOLFSKILL_Aurora_945_overlay.png,274,378
+618,WOLFSKILL_Aurora_945_overlay.png,304.5,2.5
+619,WOLFSKILL_Autumn_Seedless_4295_overlay.png,166,200
+620,WOLFSKILL_Autumn_Seedless_4295_overlay.png,415.5,498.5
+621,WOLFSKILL_Autumn_Seedless_4300_overlay.png,360,232
+622,WOLFSKILL_Autumn_Seedless_4300_overlay.png,0.5,265.5
+623,WOLFSKILL_Bakari_Mavro_5418_overlay.png,276,145
+624,WOLFSKILL_Bakari_Mavro_5418_overlay.png,251.5,509.5
+625,WOLFSKILL_Beba_5410_overlay.png,274,181
+626,WOLFSKILL_Beba_5410_overlay.png,326.5,498.5
+627,WOLFSKILL_Bequignol_4959_overlay.png,240,341
+628,WOLFSKILL_Bequignol_4959_overlay.png,340.5,26.5
+629,WOLFSKILL_Black_Corinth_2345_overlay.png,336,248
+630,WOLFSKILL_Black_Corinth_2345_overlay.png,25.5,291.5
+631,WOLFSKILL_Blauer_Spatburgunder_5459_overlay.png,233,162
+632,WOLFSKILL_Blauer_Spatburgunder_5459_overlay.png,329.5,508.5
+633,WOLFSKILL_Buraburi_3494_overlay.png,259,346
+634,WOLFSKILL_Buraburi_3494_overlay.png,322.5,11.5
+635,WOLFSKILL_Carignane_5598_overlay.png,272,179
+636,WOLFSKILL_Carignane_5598_overlay.png,75.5,475.5
+637,WOLFSKILL_Carignane_6589_overlay.png,254,336
+638,WOLFSKILL_Carignane_6589_overlay.png,270.5,25.5
+639,WOLFSKILL_Carriere_7299_overlay.png,229,365
+640,WOLFSKILL_Carriere_7299_overlay.png,281.5,3.5
+641,WOLFSKILL_Chalian_De_Drome_629_overlay.png,237,351
+642,WOLFSKILL_Chalian_De_Drome_629_overlay.png,267.5,1.5
+643,WOLFSKILL_Chenin_Blanc_8088_overlay.png,210,203
+644,WOLFSKILL_Chenin_Blanc_8088_overlay.png,387.5,455.5
+645,WOLFSKILL_Criyicless_crujicless_4988_overlay.png,292,349
+646,WOLFSKILL_Criyicless_crujicless_4988_overlay.png,114.5,12.5
+647,WOLFSKILL_DOVine_4254_overlay.png,295,149
+648,WOLFSKILL_DOVine_4254_overlay.png,357.5,504.5
+649,WOLFSKILL_Diamond_Muscat_4266_overlay.png,270,140
+650,WOLFSKILL_Diamond_Muscat_4266_overlay.png,236.5,507.5
+651,WOLFSKILL_Erlihane_3705_overlay.png,258,385
+652,WOLFSKILL_Erlihane_3705_overlay.png,277.5,2.5
+653,WOLFSKILL_Fantasy_Seedless_4312_overlay.png,239,133
+654,WOLFSKILL_Fantasy_Seedless_4312_overlay.png,303.5,507.5
+655,WOLFSKILL_Fer_Servadou_5050_overlay.png,255,143
+656,WOLFSKILL_Fer_Servadou_5050_overlay.png,199.5,506.5
+657,WOLFSKILL_Ferdinand_De_Lesseps_1212_overlay.png,229,173
+658,WOLFSKILL_Ferdinand_De_Lesseps_1212_overlay.png,152.5,504.5
+659,WOLFSKILL_Fort_Ross_Vine_2450_overlay.png,153,264
+660,WOLFSKILL_Fort_Ross_Vine_2450_overlay.png,486.5,275.5
+661,WOLFSKILL_Gouveio_5958_overlay.png,201,227
+662,WOLFSKILL_Gouveio_5958_overlay.png,468.5,393.5
+663,WOLFSKILL_Himrisnky_2660_overlay.png,233,183
+664,WOLFSKILL_Himrisnky_2660_overlay.png,380.5,499.5
+665,WOLFSKILL_Hungarian_Millenium_6059_overlay.png,230,374
+666,WOLFSKILL_Hungarian_Millenium_6059_overlay.png,292.5,2.5
+667,WOLFSKILL_Johanna_Mathiasz_1264_overlay.png,218,330
+668,WOLFSKILL_Johanna_Mathiasz_1264_overlay.png,496.5,115.5
+669,WOLFSKILL_Julius_Caesar_2100_overlay.png,238,394
+670,WOLFSKILL_Julius_Caesar_2100_overlay.png,243.5,3.5
+671,WOLFSKILL_Juracon_Noir_5071_overlay.png,249,159
+672,WOLFSKILL_Juracon_Noir_5071_overlay.png,283.5,502.5
+673,WOLFSKILL_Khaldar_1307_overlay.png,179,212
+674,WOLFSKILL_Khaldar_1307_overlay.png,482.5,324.5
+675,WOLFSKILL_Khalili_2855_overlay.png,239,163
+676,WOLFSKILL_Khalili_2855_overlay.png,316.5,490.5
+677,WOLFSKILL_Khawngi_4218_overlay.png,236,368
+678,WOLFSKILL_Khawngi_4218_overlay.png,232.5,1.5
+679,WOLFSKILL_Khorestini_3566_overlay.png,287,155
+680,WOLFSKILL_Khorestini_3566_overlay.png,245.5,464.5
+681,WOLFSKILL_Kishmish_Hishrau_148_overlay.png,239,361
+682,WOLFSKILL_Kishmish_Hishrau_148_overlay.png,235.5,2.5
+683,WOLFSKILL_Kokour_Rot_2633_overlay.png,271,182
+684,WOLFSKILL_Kokour_Rot_2633_overlay.png,169.5,496.5
+685,WOLFSKILL_Kolokithian_6178_overlay.png,250,334
+686,WOLFSKILL_Kolokithian_6178_overlay.png,235.5,6.5
+687,WOLFSKILL_Kozanitis_6207_overlay.png,317,153
+688,WOLFSKILL_Kozanitis_6207_overlay.png,132.5,507.5
+689,WOLFSKILL_Ladyfinger_Mutant_of_Thompson_Seedless4X_3399_overlay.png,248,112
+690,WOLFSKILL_Ladyfinger_Mutant_of_Thompson_Seedless4X_3399_overlay.png,232.5,499.5
+691,WOLFSKILL_Leanoy_8902_overlay.png,254,148
+692,WOLFSKILL_Leanoy_8902_overlay.png,259.5,506.5
+693,WOLFSKILL_Littorio_i.p._90_1341_overlay.png,280,184
+694,WOLFSKILL_Littorio_i.p._90_1341_overlay.png,251.5,481.5
+695,WOLFSKILL_Madam_Matijas_3590_overlay.png,255,157
+696,WOLFSKILL_Madam_Matijas_3590_overlay.png,260.5,505.5
+697,WOLFSKILL_Madeleine_Sylvaner_9777_overlay.png,250,151
+698,WOLFSKILL_Madeleine_Sylvaner_9777_overlay.png,270.5,497.5
+699,WOLFSKILL_Malvasia_Tinta_6370_overlay.png,281,355
+700,WOLFSKILL_Malvasia_Tinta_6370_overlay.png,197.5,6.5
+701,WOLFSKILL_Mavroliatis_7931_overlay.png,207,208
+702,WOLFSKILL_Mavroliatis_7931_overlay.png,406.5,484.5
+703,WOLFSKILL_Moscatel_Galego_6550_overlay.png,255,186
+704,WOLFSKILL_Moscatel_Galego_6550_overlay.png,235.5,506.5
+705,WOLFSKILL_Mosho_Patata_7952_overlay.png,258,378
+706,WOLFSKILL_Mosho_Patata_7952_overlay.png,310.5,2.5
+707,WOLFSKILL_Muscat_Bowood_3126_overlay.png,245,168
+708,WOLFSKILL_Muscat_Bowood_3126_overlay.png,320.5,470.5
+709,WOLFSKILL_Muscat_Br39_2384_overlay.png,292,151
+710,WOLFSKILL_Muscat_Br39_2384_overlay.png,279.5,508.5
+711,WOLFSKILL_Muscat_Ottonel_6674_overlay.png,216,207
+712,WOLFSKILL_Muscat_Ottonel_6674_overlay.png,457.5,475.5
+713,WOLFSKILL_Muscat_St._Laurent_56_overlay.png,214,198
+714,WOLFSKILL_Muscat_St._Laurent_56_overlay.png,346.5,508.5
+715,WOLFSKILL_Nebbiolo_6709_overlay.png,175,206
+716,WOLFSKILL_Nebbiolo_6709_overlay.png,471.5,389.5
+717,WOLFSKILL_Olho_De_Pargo_2158_overlay.png,202,285
+718,WOLFSKILL_Olho_De_Pargo_2158_overlay.png,374.5,2.5
+719,WOLFSKILL_Olivette_Blanche_1519_overlay.png,226,126
+720,WOLFSKILL_Olivette_Blanche_1519_overlay.png,282.5,508.5
+721,WOLFSKILL_Olmo_033-50_3242_overlay.png,207,195
+722,WOLFSKILL_Olmo_033-50_3242_overlay.png,361.5,491.5
+723,WOLFSKILL_Olmo_6F_V19_9199_overlay.png,154,258
+724,WOLFSKILL_Olmo_6F_V19_9199_overlay.png,491.5,188.5
+725,WOLFSKILL_Opale_1556_overlay.png,213,177
+726,WOLFSKILL_Opale_1556_overlay.png,360.5,504.5
+727,WOLFSKILL_Parnicko_7075_overlay.png,241,155
+728,WOLFSKILL_Parnicko_7075_overlay.png,270.5,507.5
+729,WOLFSKILL_Patrino_8736_overlay.png,278,380
+730,WOLFSKILL_Patrino_8736_overlay.png,124.5,4.5
+731,WOLFSKILL_Perbos_205_407_overlay.png,178,216
+732,WOLFSKILL_Perbos_205_407_overlay.png,507.5,318.5
+733,WOLFSKILL_Perle_de_Csaba_8925_overlay.png,237,161
+734,WOLFSKILL_Perle_de_Csaba_8925_overlay.png,235.5,510.5
+735,WOLFSKILL_Perle_de_Csaba_8926_overlay.png,195,208
+736,WOLFSKILL_Perle_de_Csaba_8926_overlay.png,432.5,470.5
+737,WOLFSKILL_Pinot_Gris_4644_overlay.png,228,180
+738,WOLFSKILL_Pinot_Gris_4644_overlay.png,227.5,480.5
+739,WOLFSKILL_Pinot_Noir-marianfeld_5105_overlay.png,218,184
+740,WOLFSKILL_Pinot_Noir-marianfeld_5105_overlay.png,369.5,475.5
+741,WOLFSKILL_Pinot_Noir_2a_5097_overlay.png,265,151
+742,WOLFSKILL_Pinot_Noir_2a_5097_overlay.png,222.5,507.5
+743,WOLFSKILL_Pirovano_5_2581_overlay.png,326,271
+744,WOLFSKILL_Pirovano_5_2581_overlay.png,65.5,252.5
+745,WOLFSKILL_Pirovano_5_2586_overlay.png,398,260
+746,WOLFSKILL_Pirovano_5_2586_overlay.png,3.5,213.5
+747,WOLFSKILL_Prosecco_Lungo_8666_overlay.png,287,378
+748,WOLFSKILL_Prosecco_Lungo_8666_overlay.png,198.5,2.5
+749,WOLFSKILL_Refosco_4806_overlay.png,245,365
+750,WOLFSKILL_Refosco_4806_overlay.png,229.5,5.5
+751,WOLFSKILL_Roussico_8017_overlay.png,255,149
+752,WOLFSKILL_Roussico_8017_overlay.png,256.5,494.5
+753,WOLFSKILL_Roussico_8018_overlay.png,156,197
+754,WOLFSKILL_Roussico_8018_overlay.png,504.5,360.5
+755,WOLFSKILL_Royal_2210_overlay.png,232,171
+756,WOLFSKILL_Royal_2210_overlay.png,286.5,498.5
+757,WOLFSKILL_Royal_Thompson_164_overlay.png,216,142
+758,WOLFSKILL_Royal_Thompson_164_overlay.png,299.5,504.5
+759,WOLFSKILL_Russian_Seedless_3383_overlay.png,182,176
+760,WOLFSKILL_Russian_Seedless_3383_overlay.png,480.5,427.5
+761,WOLFSKILL_Saint_Laurent_9267_overlay.png,234,136
+762,WOLFSKILL_Saint_Laurent_9267_overlay.png,245.5,508.5
+763,WOLFSKILL_Sangioveto_8344_overlay.png,259,158
+764,WOLFSKILL_Sangioveto_8344_overlay.png,244.5,501.5
+765,WOLFSKILL_Seedless_Emperor_1746_overlay.png,284,170
+766,WOLFSKILL_Seedless_Emperor_1746_overlay.png,233.5,505.5
+767,WOLFSKILL_Spanna_7368_overlay.png,239,161
+768,WOLFSKILL_Spanna_7368_overlay.png,216.5,474.5
+769,WOLFSKILL_Tallian_1826_overlay.png,195,349
+770,WOLFSKILL_Tallian_1826_overlay.png,287.5,2.5
+771,WOLFSKILL_Teneron_1388_overlay.png,235,336
+772,WOLFSKILL_Teneron_1388_overlay.png,184.5,5.5
+773,WOLFSKILL_Terret_Gris_7512_overlay.png,213,149
+774,WOLFSKILL_Terret_Gris_7512_overlay.png,309.5,504.5
+775,WOLFSKILL_Verdelho_7674_overlay.png,246,197
+776,WOLFSKILL_Verdelho_7674_overlay.png,417.5,460.5
+777,WOLFSKILL_Vermentino_Favorita_5186_overlay.png,237,155
+778,WOLFSKILL_Vermentino_Favorita_5186_overlay.png,253.5,509.5
+779,WOLFSKILL_Vital_8185_overlay.png,243,127
+780,WOLFSKILL_Vital_8185_overlay.png,203.5,506.5
+781,WOLFSKILL_Vranac_4942_overlay.png,338,320
+782,WOLFSKILL_Vranac_4942_overlay.png,7.5,98.5
+783,WOLFSKILL_Vrathiano_7736_overlay.png,239,143
+784,WOLFSKILL_Vrathiano_7736_overlay.png,303.5,508.5
+785,WOLFSKILL_Zifir_4000_overlay.png,241,168
+786,WOLFSKILL_Zifir_4000_overlay.png,283.5,507.5
+787,WOLFSKILL_nan_5131_overlay.png,204,224
+788,WOLFSKILL_nan_5131_overlay.png,466.5,472.5
+789,WOLFSKILL_nan_9570_overlay.png,285,144
+790,WOLFSKILL_nan_9570_overlay.png,140.5,487.5
+791,ALGERIA_Ahmeur Bou Ahmeur_16_overlay.png,253,146
+792,ALGERIA_Ahmeur Bou Ahmeur_16_overlay.png,230.5,509.5
+793,ALGERIA_Ahmeur Bou Ahmeur_17_overlay.png,252,156
+794,ALGERIA_Ahmeur Bou Ahmeur_17_overlay.png,281.5,493.5
+795,ALGERIA_Ahmeur Bou Ahmeur_19_overlay.png,220,171
+796,ALGERIA_Ahmeur Bou Ahmeur_19_overlay.png,244.5,508.5
+797,ALGERIA_Ahmeur Bou Ahmeur_24_overlay.png,262,142
+798,ALGERIA_Ahmeur Bou Ahmeur_24_overlay.png,236.5,505.5
+799,ALGERIA_Ahmeur Bou Ahmeur_28_overlay.png,276,145
+800,ALGERIA_Ahmeur Bou Ahmeur_28_overlay.png,175.5,499.5
