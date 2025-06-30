@@ -27,7 +27,7 @@ ALIGNED_COMBINED_VIZ_DIR = REGISTRATION_OUTPUT_BASE_DIR / "aligned_combined_viz"
 ALIGNMENT_TRANSFORMS_CSV = REGISTRATION_OUTPUT_BASE_DIR / "alignment_transforms.csv"
 
 # --- Alignment Parameters ---
-# The ID of the leaf whose SHAPE MASK will serve as the reference for alignment.
+# The ID of the leaf whose ECT will serve as the reference for alignment.
 # By default, it will pick the first leaf found in metadata.csv.
 # You can set it to a specific leaf_id, e.g., REFERENCE_LEAF_ID = "Plant001_Leaf01"
 REFERENCE_LEAF_ID = None 
@@ -173,18 +173,14 @@ def align_leaves():
         chosen_reference_leaf_id = REFERENCE_LEAF_ID
     
     reference_ect_row = metadata_df[metadata_df['leaf_id'] == chosen_reference_leaf_id].iloc[0]
-    
-    # --- CHANGE START ---
-    # Load the SHAPE MASK of the reference leaf for alignment
-    reference_mask_path = MODEL_INPUTS_BASE_DIR / reference_ect_row['file_shape_mask']
+    reference_ect_path = MODEL_INPUTS_BASE_DIR / reference_ect_row['file_radial_ect']
 
-    if not reference_mask_path.exists():
-        print(f"Error: Reference Shape Mask not found at {reference_mask_path}. Exiting.")
+    if not reference_ect_path.exists():
+        print(f"Error: Reference ECT image not found at {reference_ect_path}. Exiting.")
         sys.exit(1)
     
-    reference_image = load_image_as_float(reference_mask_path)
-    print(f"Using {chosen_reference_leaf_id}'s SHAPE MASK as the reference for alignment.")
-    # --- CHANGE END ---
+    reference_image = load_image_as_float(reference_ect_path)
+    print(f"Using {chosen_reference_leaf_id} as the reference leaf for alignment.")
 
     # --- 3. Perform Alignment for Each Leaf ---
     alignment_records = []
@@ -192,17 +188,13 @@ def align_leaves():
     print("\nCalculating alignment transformations...")
     for index, row in tqdm(metadata_df.iterrows(), total=len(metadata_df), desc="Aligning Leaves"):
         leaf_id = row['leaf_id']
-        
-        # --- CHANGE START ---
-        # Load the SHAPE MASK of the current leaf for alignment
-        mask_path = MODEL_INPUTS_BASE_DIR / row['file_shape_mask']
+        ect_path = MODEL_INPUTS_BASE_DIR / row['file_radial_ect']
 
-        if not mask_path.exists():
-            print(f"Warning: Shape Mask not found for {leaf_id} at {mask_path}. Skipping.")
+        if not ect_path.exists():
+            print(f"Warning: ECT image not found for {leaf_id} at {ect_path}. Skipping.")
             continue
         
-        moving_image = load_image_as_float(mask_path)
-        # --- CHANGE END ---
+        moving_image = load_image_as_float(ect_path)
 
         # Calculate phase_cross_correlation. This returns shifts (row, col) and rotation_angle_deg.
         # It handles both translation and rotation efficiently.
